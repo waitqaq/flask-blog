@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>激活</title>
+</head>
+<body>
+<p>您好： {{ username }}</p>
+<p>欢迎加入  <font style="color: cadetblue;font-size: 25px">小雕个人博客网站</font>  希望您你能玩的开心 (＾∀＾) </p>
+<p>您需要最后一步激活操作  请点击右侧激活链接 <a href="{{ url_for('user.active', token=token,_external=True) }}"
+                              style="color: orangered ">激活</a></p>
+</body>
+</html>

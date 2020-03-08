@@ -1,0 +1,63 @@
+{% extends 'common/base.html' %}
+{% block title %}
+    发表博客
+{% endblock %}
+{% from 'bootstrap/wtf.html' import quick_form %}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static',filename='editormd/css/editormd.css') }}"/>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+
+{% endblock %}
+{% block page_content %}
+    <div style="background-color: rgba(255,255,255,0.5);padding: 5px 3px">
+<h2 class="page-header">发表博客</h2>
+    <form action="" method="post" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+    {# 标题 #}
+        {{ form.title.label(style='font-size:16px;') }}
+        {{ form.title(class='form-control') }}
+        {% for err in form.title.errors %}
+            <p style="color:red;">{{ err }}</p>
+        {% endfor %}
+    <br>
+    {# 分类 #}
+    <div>
+       <P> <font style="font-size: 20px">分类</font> &nbsp;&nbsp;&nbsp;<a type="submit" class="btn btn-success" href="{{ url_for('posts.add_catgs', _exrernal=True) }}">添加</a>
+    &nbsp;&nbsp;&nbsp;</P>
+
+
+        <div class="checkbox" style="position: relative;left: 20px">
+            {% for ctg in ctgs %}
+            <label >
+                <input type="checkbox" style="height: 20px" name="ctgs" value="{{ ctg.categorys }}"><font style="font-size: 20px">{{ ctg.categorys }} </font>
+            </label>
+            {% endfor %}
+        </div>
+
+    </div>
+{# 图片上传 #}
+<div>
+    <hr>
+        图片上传：<input type="file" name="img" required>
+    <br>
+</div>
+    <br>
+    {# 正文 #}
+        {{ form.article.label(style='font-size:16px;') }}
+        <div id="test-editormd" class="editormd">
+        {{ form.article(style="display:none;") }}
+        </div>
+
+
+        {% for err in form.article.errors %}
+            <p style="color:red;">{{ err }}</p>
+        {% endfor %}
+        <br>
+        <button type="submit" class="btn btn-success">发表</button>
+    </form>
+    </div>
+{% endblock %}

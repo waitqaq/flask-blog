@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>再次激活</title>
+</head>
+<body>
+<p>您好： {{ username }}</p>
+<p>欢迎加入  <font style="color: cadetblue;font-size: 25px">小雕个人博客网站</font>  希望您你能玩的开心 (＾∀＾) </p>
+<p style="font-size: 20px">你可能是未激活时间太长啦，所以就再次激活吧  ! ! !</p>
+<p>请点击右侧激活链接，完成再次激活。 <a href="{{ url_for('user.active', token=token,_external=True) }}"
+                              style="color: orangered ">激活</a></p>
+</body>
+</html>

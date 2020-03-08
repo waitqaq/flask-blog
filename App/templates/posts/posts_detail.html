@@ -1,0 +1,151 @@
+{% extends 'common/base.html' %}
+{% block title %}
+    博客详情
+{% endblock %}
+{% block styles %}
+{{ super() }}
+    <link href="{{ url_for('static', filename='editormd/css/editormd.preview.min.css') }}" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='editormd/css/editormd.css') }}" rel="stylesheet" />
+            <style>
+
+            #sidebar {
+                width: 350px;
+                height: 100%;
+                position: fixed;
+                top: 70px;
+                right: 0;
+                left: 0;
+                overflow: hidden;
+                background: rgba(255,255,255,0.5);
+                z-index: 100;
+                padding: 18px;
+                border: 1px solid #ddd;
+                border-top: none;
+                border-bottom: none;
+                border-radius: 15px;
+            }
+
+            #sidebar:hover {
+                overflow: auto;
+            }
+
+            #sidebar h1 {
+                font-size: 40px;
+            }
+
+            #custom-toc-container {
+                padding-left: 0;
+                background: rgba(255,255,255,0.5);
+                border-radius: 15px;
+                font-size: 18px;
+            }
+        </style>
+{% endblock %}
+
+{% block page_content %}
+    <div style="padding: 5px 5px;background-color: rgba(255,255,255,0.3);border-radius: 15px;">
+    <br>
+    {# 博客内容的展示 #}
+    <h2>&nbsp;&nbsp;&nbsp;&nbsp;{{ posts.title }}</h2>
+    <hr style="border: 4px double orange ">
+    <br>
+
+    {# 博客内容 #}
+            <div id="sidebar">
+                <h1>目录</h1>
+                <div class="markdown-body editormd-preview-container" id="custom-toc-container"></div>
+            </div>
+            <div id="test-editormd-view1" style="background-color: rgba(255,255,255,0.5);border-radius: 15px;font-size: 18px">
+               <textarea style="display:none" name="test-editormd-markdown-doc" >{{ posts.article }}</textarea>
+            </div>
+    <br><br><br>
+    <span style="float: right">
+        <p>作者：<span style="font-weight: bold;font-size: 18px">{{ posts.user.username }}</span></p>
+        <p>发表于：<span style="font-size: 18px">{{ moment(posts.timestamp).format('YYYY-MM-DD H:m:s') }}</span></p>
+    </span>
+
+    <div class="page-header" style="clear: both"><h3>发表评论</h3></div>
+    <form action="{{ url_for('posts.comment') }}" method="post">
+        {{ form.csrf_token }}
+        <input type="hidden" name="pid" value="{{ posts.id }}">
+        {{ form.article(class="form-control",style="height:200px;resize:none;",placeholder='请输入评论内容在5～100字之间',required='true',minlength=5,maxlength=100) }}
+        <br>
+        <button class="btn btn-success">发表评论</button>
+    </form>
+    {# 下面是评论显示和回复的内容 #}
+    <div class="page-header" style="clear: both"><h3>评论内容</h3></div>
+    {# 评论和回复内容的显示 #}
+    {% for message in comment %}
+     <div class="media"  style="background-color: rgba(255,255,255,0.5);padding: 15px 15px;border-radius: 15px">
+      <div class="media-left media-middle">
+        <a href="#">
+          <img class="media-object" src="{{ url_for('static', filename='upload/'+message.user.icon,_external=True) }}" alt="..."  width="50" style="border-radius: 5px;border-top:2px solid #ccc;border-right:2px solid #ccc;">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading">
+            {% if message.pid == posts.id %}
+               {{ message.user.username }}
+             {% else %}
+                {{ message.user.username }} 回复了 {{ message.pid|replayName }}
+            {% endif %}
+
+            <span style="float: right;font-size: 14px">{{ moment(posts.timestamp).fromNow() }}&nbsp;&nbsp;<button class="btn btn-info" onclick="replay({{ message.id }})">回复</button></span>
+        </h3>
+          <P>{{ message.article }}</P>
+      </div>
+         <form action="{{ url_for('posts.comment') }}" method="post" class="replay" id="replay{{ message.id|string }}">
+        {{ form.csrf_token }}
+        <input type="hidden" name="pid" value="{{ posts.id }}">
+        <input type="hidden" name="rid" value="{{ message.id }}">
+        {{ form.article(class="form-control",style="height:100px;resize:none;",placeholder='请输入评论内容在5～100字之间',required='true',minlength=5,maxlength=100) }}
+        <br>
+        <button class="btn btn-info">发表回复</button>
+    </form>
+    </div>
+    {% endfor %}
+
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+        <script>
+    $(function () {
+        $('.replay').hide();
+    });
+    {# 点击回复的js函数#}
+    function replay(pid) {
+        $('.replay').hide();
+        $('#replay'+pid).show()
+    }
+    </script>
+    <script src="{{ url_for('static',filename='editormd/examples/js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static',filename='editormd/editormd.min.js') }}"></script>
+        <script src="{{ url_for('static',filename='editormd/editormd.js') }}"></script>
+        <script type="text/javascript">
+            $(function() {
+                var testEditormdView, testEditormdView2;
+
+                testEditormdView2 = editormd.markdownToHTML("test-editormd-view1", {
+                    htmlDecode      : "style,script,iframe",  // you can filter tags decode
+                    toc: true,
+                     tocContainer : "#custom-toc-container",
+                        tocDropdown   : false,
+                    emoji           : true,
+                    taskList        : true,
+                    tex             : true,  // 默认不解析
+                    flowChart       : true,  // 默认不解析
+                    sequenceDiagram : true,  // 默认不解析
+                });
+            });
+        </script>
+                <!--以下是关于文章正文markdown渲染的js部分 -->
+    <script type="text/javascript" src="{{ url_for('static', filename='editormd/lib/marked.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='editormd/lib/prettify.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='editormd/editormd.min.js') }}"></script>
+
+
+
+{% endblock %}
+

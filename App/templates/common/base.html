@@ -1,0 +1,116 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}
+    boot_base
+{% endblock %}
+{% block styles %}
+    {{ super() }}
+<style>
+    body{
+        background-image: url("https://i.loli.net/2020/02/25/GO52IW3nbz4aZpu.jpg");
+    }
+</style>
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('main.index',_external=True) }}">
+                    <span class="glyphicon glyphicon-grain" aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{{ url_for('main.index',_external=True) }}">首页 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li><a href="{{ url_for('posts.send_posts',_external=True) }}">发表博客</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <form class="navbar-form navbar-left" action="{{ url_for('posts.search',_external=True ) }}" method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="搜索" name="keyword" required>
+                        </div>
+                        <button type="submit" class="btn btn-default">搜索</button>
+                    </form>
+                    {# 验证是否已经登录 #}
+                    {% if  current_user.is_authenticated %}
+                        <li><a href="#">欢迎：{{ current_user.username }}</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false">个人中心<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url_for('owncenter.user_info', _exrernal=True) }}" target="_blank" >查看与修改个人信息</a></li>
+                                <li><a href="{{ url_for('owncenter.upload', _external=True) }}">上传头像</a></li>
+
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ url_for('owncenter.posts_manager',_external=True) }}">博客管理</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ url_for('user.logout',_external=True) }}">退出登录</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('user.login',_external=True) }}">登录</a></li>
+                        <li><a href="{{ url_for('user.register',_external=True) }}">注册</a></li>
+                    {% endif %}
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        {# 配置消息闪现 #}
+        {% for msg in get_flashed_messages() %}
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <strong>{{ msg }}</strong>
+            </div>
+        {% endfor %}
+        {% block page_content %}
+        {% endblock %}
+    </div>
+
+<footer>
+    <p class="text-center" style="color: blue">Design by Alone <a href="http://www.beian.miit.gov.cn/" style="color: orange">陕ICP备20001402号</a></p>
+</footer>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.locale('zh_CN') }}
+<script src="{{ url_for('static',filename='editormd/examples/js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static',filename='editormd/editormd.min.js') }}"></script>
+<script type="text/javascript">
+    $(function () {
+        testEditor = editormd("test-editormd", {
+            // width: "100%", 请不要添加
+            height: 640,
+            syncScrolling: "single",
+            path: "{{ url_for('static',filename='editormd/lib/') }}",
+            saveHTMLToTextarea : true,
+            taskList: true,
+            toc: true,
+            tocm: true,
+            imageUpload : true,
+            imageFormats : [ "jpg", "jpeg", "gif", "png", "bmp", "webp" ],
+            imageUploadURL : "{{ url_for('posts.upload_image') }}",
+            emoji: true,//emoji表情，默认关闭
+
+        })});
+</script>
+
+{% endblock %}

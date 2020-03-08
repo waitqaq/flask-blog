@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="02b5bc8d-b777-4c6c-90cc-721126880e6d" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="alone_blog: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XCL96HEcLa3CDn5Dxlu4I15DbU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/App/static/img/lunbo" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\blog\App\static\img" />
+      <recent name="D:\blog\App\static\img\banner" />
+      <recent name="D:\blog\App\templates\user" />
+      <recent name="D:\blog\App\templates\posts" />
+      <recent name="D:\blog\App\templates\send_posts" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\blog\App\static\img\lunbo" />
+      <recent name="D:\blog\App\static\img" />
+      <recent name="D:\blog\App\static" />
+      <recent name="D:\blog\App\static\js" />
+      <recent name="D:\blog\App\static\css" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="02b5bc8d-b777-4c6c-90cc-721126880e6d" name="Default Changelist" comment="" />
+      <created>1580544974929</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580544974929</updated>
+      <workItem from="1580544977259" duration="5782000" />
+      <workItem from="1580553779115" duration="3568000" />
+      <workItem from="1580616719400" duration="32316000" />
+      <workItem from="1580709995146" duration="39750000" />
+      <workItem from="1580874537228" duration="29629000" />
+      <workItem from="1580912915654" duration="2372000" />
+      <workItem from="1580916403922" duration="625000" />
+      <workItem from="1582195439410" duration="6033000" />
+      <workItem from="1582521984859" duration="18610000" />
+      <workItem from="1582631810124" duration="11617000" />
+      <workItem from="1582799659921" duration="17345000" />
+      <workItem from="1582849139817" duration="24569000" />
+      <workItem from="1582951159498" duration="9124000" />
+      <workItem from="1583029059271" duration="32251000" />
+      <workItem from="1583145489468" duration="992000" />
+      <workItem from="1583235732876" duration="15229000" />
+      <workItem from="1583288227056" duration="15974000" />
+      <workItem from="1583318776504" duration="85000" />
+      <workItem from="1583372325324" duration="4952000" />
+      <workItem from="1583379781699" duration="1712000" />
+      <workItem from="1583472196275" duration="23000" />
+      <workItem from="1583571882107" duration="1294000" />
+      <workItem from="1583576891926" duration="113000" />
+      <workItem from="1583577198630" duration="29000" />
+      <workItem from="1583629418431" duration="3708000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583248818006">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583248818006" />
+    <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580903007374">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580903007374" />
+    <state x="926" y="168" key="SettingsEditor" timestamp="1580549577451">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="926" y="168" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1580549577451" />
+    <state x="681" y="261" width="540" height="524" key="StructurePopup" timestamp="1583071862734">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="681" y="261" width="540" height="524" key="StructurePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1583071862734" />
+    <state x="814" y="390" width="336" height="260" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1583072099174">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="814" y="390" width="336" height="260" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040@0.0.1920.1040" timestamp="1583072099174" />
+    <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1582542915895">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582542915895" />
+  </component>
+</project>
