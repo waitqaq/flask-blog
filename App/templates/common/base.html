@@ -12,7 +12,7 @@
 {% endblock %}
 
 {% block navbar %}
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse" style="margin: 0">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -70,7 +70,7 @@
     </nav>
 {% endblock %}
 {% block content %}
-    <div class="container">
+    <div class="container" style="width: 70%;">
         {# 配置消息闪现 #}
         {% for msg in get_flashed_messages() %}
             <div class="alert alert-warning alert-dismissible" role="alert">
@@ -84,7 +84,7 @@
     </div>
 
 <footer>
-    <p class="text-center" style="color: blue">Design by Alone <a href="http://www.beian.miit.gov.cn/" style="color: orange">陕ICP备20001402号</a></p>
+    <p class="text-center">Design by Alone <a href="http://www.beian.miit.gov.cn/" style="color: orange">陕ICP备20001402号</a></p>
 </footer>
 {% endblock %}
 

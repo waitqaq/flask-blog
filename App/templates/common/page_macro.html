@@ -1,6 +1,6 @@
     {% macro page(pagination, endPoint) %}
-    <nav aria-label="Page navigation" >
-  <ul class="pagination">
+    <nav class="text-center m-t-lg m-b-lg" role="navigation">
+  <ul class="page-navigator">
   {# 如果没有上一页，显示无法点击 #}
     <li {% if not pagination.has_prev %}class="disabled" {% endif %} >
     {# 如果有上一页，就跳转到对应页码 #}
@@ -10,7 +10,7 @@
     </li>
 
   {% for p in pagination.iter_pages() %}
-    <li {% if p==pagination.page %}class="active" {% endif %} >
+    <li {% if p==pagination.page %}class="current" {% endif %} >
         <a href="{{ url_for(endPoint, page=p, **kwargs) }}">{{ p }}</a>
     </li>
   {% endfor %}

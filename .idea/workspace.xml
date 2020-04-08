@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="02b5bc8d-b777-4c6c-90cc-721126880e6d" name="Default Changelist" comment="" />
+    <list default="true" id="02b5bc8d-b777-4c6c-90cc-721126880e6d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blog.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/48ca47dc-3b42-4001-b162-d9f018594a93.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/48ca47dc-3b42-4001-b162-d9f018594a93.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/forms/posts.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/forms/posts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/models/categorys.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/models/posts.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/models/posts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/static/img/b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/static/img/bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/static/img/lunbo/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/static/img/lunbo/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/static/img/lunbo/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/static/img/tou.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/App/static/img/tou.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/common/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/common/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/common/page_macro.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/common/page_macro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/main/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/posts/posts_ctgs.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/posts/posts_ctgs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/posts/posts_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/posts/posts_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/posts/send_posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/posts/send_posts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/views/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/views/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/views/owncenter.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/views/owncenter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/views/posts.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/views/posts.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +69,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1XCL96HEcLa3CDn5Dxlu4I15DbU" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -55,8 +85,9 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/App/static/img/lunbo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/App/static/img" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -66,6 +97,13 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\blog\flask-blog\App\static\img" />
+      <recent name="D:\blog\flask-blog\App\templates\main" />
+      <recent name="D:\blog\App\static\img\lunbo" />
+      <recent name="D:\blog\App\static\img" />
+      <recent name="D:\blog\App\static" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\blog\App\static\img" />
       <recent name="D:\blog\App\static\img\banner" />
@@ -73,13 +111,58 @@
       <recent name="D:\blog\App\templates\posts" />
       <recent name="D:\blog\App\templates\send_posts" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\blog\App\static\img\lunbo" />
-      <recent name="D:\blog\App\static\img" />
-      <recent name="D:\blog\App\static" />
-      <recent name="D:\blog\App\static\js" />
-      <recent name="D:\blog\App\static\css" />
-    </key>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="blog" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="blog" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/App/views" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/App/views/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.1" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -116,6 +199,8 @@
       <workItem from="1583576891926" duration="113000" />
       <workItem from="1583577198630" duration="29000" />
       <workItem from="1583629418431" duration="3708000" />
+      <workItem from="1583636797823" duration="1667000" />
+      <workItem from="1586181472729" duration="70039000" />
     </task>
     <servers />
   </component>
@@ -127,14 +212,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583248818006" />
-    <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580903007374">
+    <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586269845588">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1580903007374" />
-    <state x="926" y="168" key="SettingsEditor" timestamp="1580549577451">
+    <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586269845588" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1586320894301">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="926" y="168" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1580549577451" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1586320894301" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1586320894301">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1586320894301" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1586320894301">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1586320894301" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1586320894301">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1586320894301" />
+    <state x="668" y="150" key="SettingsEditor" timestamp="1586181510250">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="668" y="150" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1586181510250" />
     <state x="681" y="261" width="540" height="524" key="StructurePopup" timestamp="1583071862734">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -147,5 +248,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1582542915895" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/flask_blog$main.coverage" NAME="main Coverage Results" MODIFIED="1586320889982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/App/views" />
+    <SUITE FILE_PATH="coverage/flask_blog$1.coverage" NAME="1 Coverage Results" MODIFIED="1586268570247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

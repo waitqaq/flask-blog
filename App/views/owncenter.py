@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, request, current_app
 
-from App.models import Posts,Categorys
+from App.models import Posts
 from App.forms import UserInfo  # 导入个人信息显示user模型类和文件上传表单类
 from App.forms import SendPosts,Upload  # 用于编辑博客
 from flask_login import current_user, login_required
@@ -114,7 +114,6 @@ def upload():
 def edit_posts(pid):
     form = SendPosts()  # 实例化表单
     p = Posts.query.get(pid)  # 根据博客id  查询
-    ctgs = Categorys.query.all()
     if not p:
         flash('该博客不存在')
         return redirect(url_for('owncenter.posts_manager'))
@@ -123,8 +122,6 @@ def edit_posts(pid):
         article = request.form['article']
         # 得到所选的分类值
         ctg = request.values.get('ctgs')
-        # 将所选择的分类值在数据库中进行查找
-        ctg_id = Categorys.query.filter(Categorys.categorys == ctg).first()
         # 图片上传
         img = request.files.get('img')  # 获取上传对象
         suffix = img.filename.split('.')[-1]  # 获取后缀
@@ -139,7 +136,6 @@ def edit_posts(pid):
 
         p.title = form.title.data
         p.article = article
-        p.categorys = ctg_id
         p.img = newName
         p.save()
         flash('博客更新成功')
@@ -147,4 +143,4 @@ def edit_posts(pid):
     form.title.data = p.title
     form.article.data = p.article
 
-    return render_template('owncenter/edit_posts.html', form=form,ctgs=ctgs)
+    return render_template('owncenter/edit_posts.html', form=form)

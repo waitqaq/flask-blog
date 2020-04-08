@@ -22,6 +22,5 @@ class Comment(FlaskForm):
 
 # 添加分类的表单
 class Catgs(FlaskForm):
-    categorys = StringField('分类专栏', validators=[DataRequired('分类专栏不能为空'),
-                                                Length(min=2, max=20, message='分类内容在2-15字之间')],
+    categorys = StringField('分类专栏',
                             render_kw={'placeholder': '请输入分类'})

@@ -1,5 +1,7 @@
 from flask import Blueprint,render_template, request,current_app
+
 from App.models import Posts,Categorys
+from sqlalchemy import func
 
 main = Blueprint('main', __name__)
 
@@ -26,6 +28,7 @@ def index():
     for i in article_list:
         list.append(i.visit)
     v=sum(list)
-    ctgs = Categorys.query.all()
 
-    return render_template('main/index.html',posts=data, pagination=pagination,art = art,visit=visit,v=v,ctgs=ctgs)
+    cs = Categorys.query.all()
+
+    return render_template('main/index.html',posts=data, pagination=pagination,art = art,visit=visit,v=v,ctgs=cs)

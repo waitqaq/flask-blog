@@ -2,7 +2,10 @@ from App.extensions import db
 from .db_base import DB_Base
 from datetime import datetime
 
-
+posts_categorys = db.Table('posts_categorys',
+                       db.Column('posts_id', db.Integer, db.ForeignKey('posts.id'), primary_key=True),
+                       db.Column('categorys_id', db.Integer, db.ForeignKey('categorys.id'), primary_key=True)
+                       )
 # 博客模型
 class Posts(DB_Base, db.Model):
     __tablename__ = 'posts'
@@ -16,9 +19,18 @@ class Posts(DB_Base, db.Model):
     state = db.Column(db.Integer, default=0)  # 是否所有人可见
     img = db.Column(db.String(70))  # 图片
 
-    # 设置一对多的外键
-    uid = db.Column(db.Integer, db.ForeignKey('user.id'))  # 设置外键， 关联主表user的自增id
-    cid = db.Column(db.Integer,db.ForeignKey('categorys.id'))
+    tags = db.relationship('Categorys', secondary=posts_categorys, backref=db.backref('posts'))
+
+    u_id = db.Column(db.Integer, db.ForeignKey('user.id'))  # 关联主表user的自增id
+
+
+
+class Categorys(DB_Base, db.Model):
+    __tablename__ = 'categorys'
+    id = db.Column(db.Integer, primary_key=True)
+    categorys = db.Column(db.String(20),index=True, unique=True)
+
+
 
 
 

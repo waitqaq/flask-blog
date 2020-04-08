@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, flash, redirect, url_for, current_
 from sqlalchemy import or_
 
 from App.forms import SendPosts, Comment, Catgs  # 导入发表博客与发表评论的表单类
-from App.models import Posts, Categorys  # 导入博客模型类和标签模型类
+from App.models import Posts,Categorys  # 导入博客模型类和标签模型类
 from flask_login import current_user, login_required
 
 from datetime import datetime
@@ -23,7 +23,7 @@ def random_filename(suffix):
 
 
 # 图片缩放处理
-def img_zoom(path, width=200, height=200):
+def img_zoom(path, width=1000, height=250):
     # 打开文件
     img = Image.open(path)
     # 重新设计尺寸
@@ -36,34 +36,34 @@ def img_zoom(path, width=200, height=200):
 @posts.route('/send_posts/', methods=['GET', 'POST'])
 def send_posts():
     form = SendPosts()
+
     ctgs = Categorys.query.all()
     # 判断登录后在进行发表
     if not current_user.is_authenticated:
         flash('您还没有登录  请登录后再发表')
-    elif form.validate_on_submit():
-        # md格式
-        article = request.form['article']
-        # 得到所选的分类值
-        ctg = request.values.get('ctgs')
-        # 将所选择的分类值在数据库中进行查找
-        ctg_id = Categorys.query.filter(Categorys.categorys == ctg).first()
-        # 图片上传
-        img = request.files.get('img')  # 获取上传对象
-        suffix = img.filename.split('.')[-1]  # 获取后缀
-        newName = random_filename(suffix)  # 获取新图片的名称
-        # 以新名称保存图片
-        file.save(img, name=newName)
-        delPath = current_app.config['UPLOADED_PHOTOS_DEST']
-        # 拼接图片路径
-        path = os.path.join(delPath, newName)
-        # 进行缩放
-        img_zoom(path)
-
-        post = Posts(title=form.title.data, user=current_user, article=article, categorys=ctg_id, img=newName)
-        post.save()
-
-        flash('博客发表成功')
-        return redirect(url_for('main.index'))
+    if current_user.id != 1:
+        flash('您没有发表博客的权限！')
+    else:
+        if form.validate_on_submit():
+            # md格式
+            article = request.form['article']
+            ctgs = request.form['ctgs']
+            tags = Categorys.query.filter_by(categorys=ctgs).first()
+            # 图片上传
+            img = request.files.get('img')  # 获取上传对象
+            suffix = img.filename.split('.')[-1]  # 获取后缀
+            newName = random_filename(suffix)  # 获取新图片的名称
+            # 以新名称保存图片
+            file.save(img, name=newName)
+            delPath = current_app.config['UPLOADED_PHOTOS_DEST']
+            # 拼接图片路径
+            path = os.path.join(delPath, newName)
+            # 进行缩放
+            img_zoom(path)
+            post = Posts(title=form.title.data, user=current_user, article=article, img=newName,tags=[tags])
+            post.save()
+            flash('博客发表成功')
+            return redirect(url_for('main.index'))
     return render_template('posts/send_posts.html', form=form, ctgs=ctgs)
 
 
@@ -81,6 +81,22 @@ def add_catgs():
         flash('分类添加成功')
         return redirect(url_for('posts.send_posts'))
     return render_template('posts/add_categorys.html', form=form, ctgs=ctgs)
+
+
+# 删除分类
+@posts.route('/delete_catgs/', methods=['GET', 'POST'])
+def delete_catgs():
+    ctgs = Categorys.query.all()
+    form = Catgs()
+    if not current_user.is_authenticated:
+        flash('您还没有登录  请登录后再操作')
+    elif form.validate_on_submit():
+        cs = request.form['ctgs']
+        d = Categorys.query.filter_by(categorys=cs)[0]
+        d.delete()
+        flash('分类删除成功')
+        return redirect(url_for('posts.send_posts'))
+    return render_template('posts/delete_categorys.html', form=form, ctgs=ctgs)
 
 
 # 搜索
@@ -114,12 +130,11 @@ def posts_ctgs():
     except:
         page = 1
     cid = request.args.get('pid')
-    # 查询pid为0（是博客内容，不为0则是评论或回复内容），statue为0（所有人可见），按照时间降序显示
-    # 搜索功能，搜索内容为：标题或正文
-    pagination = Posts.query.filter(Posts.cid==cid,Posts.pid == 0,Posts.state == 0) \
-        .order_by(Posts.timestamp.desc()) \
-        .paginate(page, current_app.config['PAGE_NUM'], False)  # False 为不抛出异常
-    data = pagination.items  # 获取page页面的数据
+    global pagination,data
+    posts = Categorys.query.get(cid)
+    for i in posts.posts:
+        pagination = Posts.query.filter(Posts.title==i.title).order_by(Posts.timestamp.desc()).paginate(page, current_app.config['PAGE_NUM'], False)  # False 为不抛出异常
+        data = pagination.items  # 获取page页面的数据
     category = Categorys.query.get(cid)
 
     return render_template('posts/posts_ctgs.html',pagination=pagination,posts=data,category=category)

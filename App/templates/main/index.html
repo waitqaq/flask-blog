@@ -1,110 +1,689 @@
-{% extends 'common/base.html' %}
-{% block title %}
-    首页
-{% endblock %}
 
-{% block scripts %}
-{{ super() }}
+<!DOCTYPE HTML>
+<html class="no-js bg cool-transparent" lang="zh-cmn-Hans">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta charset="UTF-8">
+    <!--IE 8浏览器的页面渲染方式-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <!--默认使用极速内核：针对国内浏览器产商-->
+    <meta name="renderer" content="webkit">
+    <!--chrome Android 地址栏颜色-->
+        <meta name="theme-color" content="#23338A" />
 
-{% endblock %}
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="//www.wnark.com" />
 
-{% block page_content %}
-<div class="row">
-  <div class="col-md-3">
-      <div class="main" style="background-color: rgba(255,255,255,0.8) ;border-radius: 15px;">
+    <title>方舟基地</title>
+            <link rel="icon" type="image/ico" href="https://pic.wnark.com/images/2019/11/08/50x50.png">
+        <meta name="description" content="方舟基地 寒夜方舟" />
+<meta name="keywords" content="typecho,php,blog,handsome" />
+<meta name="generator" content="Typecho 1.1/17.10.30" />
+<meta name="template" content="handsome" />
+<link rel="alternate" type="application/rss+xml" title="方舟基地 &raquo; RSS 2.0" href="https://www.wnark.com/feed/" />
+<link rel="alternate" type="application/rdf+xml" title="方舟基地 &raquo; RSS 1.0" href="https://www.wnark.com/feed/rss/" />
+<link rel="alternate" type="application/atom+xml" title="方舟基地 &raquo; ATOM 1.0" href="https://www.wnark.com/feed/atom/" />
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.css" /><style>
+.pp-block{text-align:center;border-radius:3px;background-color:rgba(0, 0, 0, 0.45);padding:20px 0 20px 0;}
+.pp-block>form>input{height:24px;border:1px solid #fff;background-color:transparent;width:50%;border-radius:3px;color:#fff;text-align:center;}
+.pp-block>form>input::placeholder{color:#fff;}
+.pp-block>form>input::-webkit-input-placeholder{color:#fff;}
+.pp-block>form>input::-moz-placeholder{color:#fff;}
+.pp-block>form>input:-moz-placeholder{color:#fff;}
+.pp-block>form>input:-ms-input-placeholder{color:#fff;}
+</style>
+        <!-- 第三方CDN加载CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        <img src="{{ url_for('static',filename='img/tou.jpg',_external=True) }}" style="height:150px;border-radius: 80px;position: relative;left: 55px">
 
-        <div style="font-size: 20px;">
-            <p>&nbsp;&nbsp;A l o n e</p>
-            <p>&nbsp;&nbsp;邮箱 :alone_3@163.com</p>
-            <p></p>
-            <p>&nbsp;&nbsp;文章：{{ art }}   篇</p>
-            <p>&nbsp;&nbsp;访问量：{{ v }}</p>
-        </div>
+    <!-- 本地css静态资源 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wnark/handsome-assets@master/6.0.0/css/function.min.css?v=6.0.020191205" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wnark/handsome-assets@master/6.0.0/css/handsome.min.css?v=6.0.020191205" type="text/css" />
+
+
+
+    <!--主题组件css文件加载-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wnark/handsome-assets@master/6.0.0/css/features/jquery.fancybox.min.css?v=6.0.020191205" type="text/css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wnark/handsome-assets@master/6.0.0/css/features/code/vs.min.css?v=6.0.020191205" type="text/css" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wnark/handsome-assets@master/6.0.0/css/features/coolopacity.min.css?v=6.0.020191205" type="text/css" />
+
+                <style>
+            .cool-transparent .app:before {
+                background-color: rgba(35,51,138,0.7)!important;
+                filter: blur(20px);
+            }
+        </style>
+
+
+    <!--引入英文字体文件-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wnark/handsome-assets@master/6.0.0/css/font.min.css?v=6.0.020191205" type="text/css" />
+
+    <style type="text/css">
+
+        html.bg {
+        background: url(http://pic.netbian.com/uploads/allimg/190909/192110-1568028070e1cc.jpg) center center no-repeat no-repeat fixed #6A6B6F;background-size: cover;
+        }
+        .cool-transparent .off-screen+* .app-content-body {
+        background: url(http://pic.netbian.com/uploads/allimg/190909/192110-1568028070e1cc.jpg) center center no-repeat no-repeat fixed #6A6B6F;background-size: cover;
+        }
+@media (max-width:767px){
+    html.bg {
+        background: url(https://pic.wnark.com/images/2019/10/16/-15.jpg) center center no-repeat no-repeat fixed #6A6B6F;background-size: cover;
+        }
+        .cool-transparent .off-screen+* .app-content-body {
+        background: url(https://pic.wnark.com/images/2019/10/16/-15.jpg) center center no-repeat no-repeat fixed #6A6B6F;background-size: cover;
+        }
+}
+.heimu,.heimu a{
+    background-color: #252525;
+    color:#252525;
+    text-shadow: none;
+}::selection{
+    background:#9ab0c0;
+    color:#fff;
+}
+ .heimu:hover,.heimu:hover a{
+    transition:color .13s linear;
+    color:#fff;
+}
+
+#toc {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+#post-content div.tip code {
+    background-color: #000;
+}#aside .wrapper:hover {
+	background: url(https://cdn.jsdelivr.net/gh/wnark/handsome-assets@master/6.0.0/img/snow.gif);
+	background-size: cover;
+	color: #999;
+}    </style>
+
+    <!--全站jquery-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+
+    <!--网站统计代码-->
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?723d875917a5c3ab53eed34490897078";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<script data-ad-client="ca-pub-4779708111715019" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wnark/handsome-assets@master/6.0.0/js/features/fancyMorph.min.js"></script>
+
+</head>
+
+<body id="body" class="fix-padding">
+  <!-- aside -->
+
+  <div id="alllayout" class="app app-aside-fix container app-header-fixed " style="width: 1270px">  <!-- headnav -->
+      <header id="header" class="fix-padding app-header navbar box-shadow-bottom-lg" role="menu">
+      <!-- navbar header（交集处） -->
+        <div class="text-ellipsis navbar-header bg-dark">
+        <button class="pull-right visible-xs" ui-toggle-class="show animated animated-lento fadeIn" target=".navbar-collapse">
+            <span class="menu-icons"><i data-feather="search"></i></span>
+        </button>
+        <button class="pull-left visible-xs" ui-toggle-class="off-screen animated" target=".app-aside" ui-scroll="app">
+            <span class="menu-icons"><i data-feather="menu"></i></span>
+        </button>
+        <!-- brand -->
+        <a href="http://alonezd.top/" class="navbar-brand text-lt">
+                                                <i class="fontello fontello-home"></i>
+                                <span class="hidden-folded m-l-xs">alone's blog</span>
+                    </a>
+        <!-- / brand -->
       </div>
-          <div class="http" style="background-color: rgba(255,255,255,0.8) ;border-radius: 5px;padding: 5px 5px;">
-            <p style="font-size: 20px;background-color: rgba(255,255,255,1) ;border-radius: 10px;">&nbsp;&nbsp;点击排行:</p>
-              {% for v in visit %}
-               <ul>
-                  <li><a href="{{ url_for('posts.posts_detail',pid=v.id, _external=True) }}" style="color: #00a8c6 ">{{ v.title }}</a></li>
-              </ul>
-              {% endfor %}
-          </div>
-  <br>
-          <div class="http" style="background-color: rgba(255,255,255,0.8) ;border-radius: 10px;padding: 5px 5px;">
-            <p style="font-size: 20px;background-color: rgba(255,255,255,1) ;border-radius: 10px;">&nbsp;&nbsp;分类:</p>
-              {% for c in ctgs %}
-                  <h5 style="position:relative;left: 10px"><a href="{{ url_for('posts.posts_ctgs',pid=c.id) }}" style="color: #7F007F">{{ c.categorys }} <span class="label label-default"></span></a></h5>
-              {% endfor %}
-          </div>
-      <br>
-          <div class="http" style="background-color: rgba(255,255,255,0.8) ;border-radius: 5px;">
-            <p style="font-size: 20px;background-color: rgba(255,255,255,1) ;border-radius: 10px;">&nbsp;&nbsp;友情链接:</p>
-            <a style="font-size: 15px;position:relative;left: 20px" href="http://alonezd.top">小雕个人博客</a>
-          </div>
-  </div>
-  <div class="col-md-9">    {# 轮播图 #}
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        </ol>
+      <!-- / navbar header -->
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox" style="border-radius: 10px">
-            {% for i in range(1,4) %}
-                <div class="item {% if i==1 %}active{% endif %} ">
-                    <img src="{{ url_for('static',filename='img/lunbo/'+i|string+'.jpg') }}" alt="..." width="1500px"
-                         style="height: 450px; margin: auto;">
-                    <div class="carousel-caption" style="color: orange">
-                        A l o n e ' s   b l o g
-                    </div>
+      <!-- navbar collapse（顶部导航栏） -->
+    <div class="collapse pos-rlt navbar-collapse bg-dark" style="width: 1050px">
+        <!-- search form -->
+      <form class="navbar-form navbar-left" action="{{ url_for('posts.search',_external=True ) }}" method="post">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="搜索" name="keyword" required style="border-radius: 5px">
+        </div>
+        <button type="submit" class="btn btn-default" style="border-radius: 5px">搜索</button>
+    </form>
+        <!-- / search form -->
+                <ul class="nav navbar-nav navbar-right">
+                                        {# 验证是否已经登录 #}
+                    {% if  current_user.is_authenticated %}
+                        <li><a href="#">欢迎：{{ current_user.username }}</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true"
+                               aria-expanded="false"><i data-feather="twitch"></i>个人中心<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url_for('owncenter.user_info', _exrernal=True) }}" target="_blank" >查看与修改个人信息</a></li>
+                                <li><a href="{{ url_for('owncenter.upload', _external=True) }}">上传头像</a></li>
+
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ url_for('owncenter.posts_manager',_external=True) }}">博客管理</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ url_for('user.logout',_external=True) }}">退出登录</a></li>
+                    {% else %}
+                        <li><a href="{{ url_for('user.login',_external=True) }}">登录</a></li>
+                        <li><a href="{{ url_for('user.register',_external=True) }}">注册</a></li>
+                    {% endif %}
+         </ul>
+      </div>
+      <!-- / navbar collapse -->
+  </header>
+  <!-- / headnav -->
+
+  <!--选择侧边栏的颜色-->
+  <aside id="aside" class="app-aside hidden-xs bg-light">  <!--<aside>-->
+        <div class="aside-wrap" layout="column">
+        <div class="navi-wrap scroll-y scroll-hide" flex>
+          <!-- user -->
+          <div class="clearfix hidden-xs text-center hide  show" id="aside-user">
+            <div class="dropdown wrapper vertical-wrapper">
+                <div ui-nav>
+                          <a href="https://www.wnark.com/cross.html">
+                            <span class="thumb-lg w-auto-folded avatar m-t-sm  vertical-avatar">
+                  <img src="{{ url_for('static',filename='img/tou.jpg',_external=True) }}" class="img-full img-circle normal-shadow">
+                </span>
+              </a>
                 </div>
-            {% endfor %}
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-    {# 博客内容的展示 #}
-    {% for p in posts %}
-    <div class="media" style="background-color: rgba(255,255,255,0.8);padding:6px 5px;border-radius: 10px;">
-    <a href="{{ url_for('posts.posts_detail',pid=p.id, _external=True) }}" style="color: #000000;text-decoration: none">
-        <div class="media-left media-middle">
-                <img class="media-object" src="{{ url_for('static',filename='upload/'+p.img) }}" alt="..."   style="border-radius: 5px;border-top:2px solid #ccc;border-right:2px solid #ccc;">
-        </div>
-        <div class="media-body">
-            <h4 class="media-heading" style="font-weight: bold">{{ p.title }}</h4>
-            <span style="font-size: 18px">{{ p.article|safe|striptags|showEllipsis }}</span>
-            <br>
-        </div>
-            <div style="float: right;color: black;font-size: 15px">
-                <b>👍:{{ p.visit }}</b>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                {{moment(p.timestamp).format('YYYY-MM-DD H:m:s')}}
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle hidden-folded  vertical-flex">
+                <span class="clear">
+                  <span class="block m-t-sm">
+                    <strong class="font-bold text-lt" style="font-size: 20px">alone</strong>
+                    <b class="caret"></b>
+                  </span>
+                  <span class="text-muted text-xs block">sunny!</span>
+                </span>
+              </a>
+              <!-- dropdown -->
+              <ul class="dropdown-menu animated fadeInRight w hidden-folded no-padder">
+                <li class="wrapper b-b m-b-sm bg-info m-n">
+                  <span class="arrow top hidden-folded arrow-info"></span>
+                  <div>
+                                                  <p>早上好，永远年轻，永远热泪盈眶</p>
+                                  </div>
+                  <div class="progress progress-xs m-b-none dker">
+                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过33.33%" style="width: 33.33%"></div>
+                  </div>
+                </li>
+              </ul>
+              <!-- / dropdown -->
             </div>
+          </div>
+          <!-- / user -->
 
-    </a>
-    </div>
+          <!-- nav -->
+          <nav ui-nav class="navi clearfix">
+            <ul class="nav">
+             <!--index-->
+                <div class="line dk hidden-folded"></div>
+                <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                <span>导航</span>
+              </li>
+                                          <!--主页-->
+              <li>
+                <a href="https://www.wnark.com/" class="auto">
+                    <span class="nav-icon"><i data-feather="home"></i></span>
+                    <span>首页</span>
+                </a>
+                                  <a href="{{ url_for('posts.send_posts',_external=True) }}" class="auto">
+                    <span class="nav-icon"><i class="glyphicon glyphicon-book"></i></span>
+                    <span>写博客</span>
+                </a>
+              </li>
+              <!-- /主页 -->
+                                                          <li class="line dk"></li>
+			<!--Components-->
+              <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                <span>组成</span>
+              </li>
+              <!--分类category-->
+                              <li >
+                <a class="auto">
+                  <span class="pull-right text-muted">
+                    <i class="fontello icon-fw fontello-angle-right text"></i>
+                    <i class="fontello icon-fw fontello-angle-down text-active"></i>
+                  </span>
+<!--                  <i class="glyphicon glyphicon-th"></i>-->
+                    <span class="nav-icon"><i data-feather="grid"></i></span>
 
-        {% endfor %}
-    {# 分页 #}
+                    <span>分类</span>
+                </a>
+                <ul class="nav nav-sub dk">
+                  <li class="nav-sub-header">
+                    <a>
+                      <span>分类</span>
+                    </a>
+                  </li>
+                  <!--循环输出分类-->
+                    <li>
+                            {% for c in ctgs %}
+                         <a href="{{ url_for('posts.posts_ctgs',pid=c.id) }}"><b class="badge pull-right">
+                            {{ c.posts | length }}
+                         </b><span></span>{{ c.categorys }}</a>
+                        {% endfor %}
+                    </li>
+                </ul>
+
+                    </li>
+              <!--独立页面pages-->
+{#              <li>#}
+{#                <a class="auto">#}
+{#                  <span class="pull-right text-muted">#}
+{#                    <i class="fontello icon-fw fontello-angle-right text"></i>#}
+{#                    <i class="fontello icon-fw fontello-angle-down text-active"></i>#}
+{#                  </span>#}
+{#                    <span class="nav-icon"><i data-feather="file"></i></span>#}
+{#                  <span>页面</span>#}
+{#                </a>#}
+{#                <ul class="nav nav-sub dk">#}
+{#                  <li class="nav-sub-header">#}
+{#                    <a data-no-instant>#}
+{#                      <span>页面</span>#}
+{#                    </a>#}
+{#                  </li><!--这个字段不会被显示出来-->#}
+{#                  <!--循环输出独立页面-->#}
+{#                                                                                   <li><a href="https://www.wnark.com/start-page.html"><span>消费统计</span></a></li>#}
+{#                                                                 <li><a href="https://www.wnark.com/cross.html"><span>时光机</span></a></li>#}
+{#                                                                 <li><a href="https://www.wnark.com/30.html"><span>文章归档</span></a></li>#}
+{#                                   </ul>#}
+{#              </li>#}
+              <!--友情链接-->
+              <li>
+                <a class="auto">
+                  <span class="pull-right text-muted">
+                    <i class="fontello icon-fw fontello-angle-right text"></i>
+                    <i class="fontello icon-fw fontello-angle-down text-active"></i>
+                  </span>
+                    <span class="nav-icon"><i data-feather="user"></i></span>
+                  <span>友链</span>
+                </a>
+                <ul class="nav nav-sub dk">
+                  <li class="nav-sub-header">
+                    <a data-no-instant>
+                      <span>友链</span>
+                    </a>
+                  </li>
+                  <!--使用links插件，输出全站友链-->
+                 <li data-original-title="有趣的人" data-toggle="tooltip" data-placement="top">
+                     <a href="https://blog.seasonseason.top/" target="_blank"><span>Season</span></a></li>
+                 </ul>
+              </li>
+                            </ul>
+          </nav>
+          <!-- nav -->
+        </div>
+          <!--end of .navi-wrap-->
+          <!--left_footer-->
+
+      </div><!--.aside-wrap-->
+  </aside>
+<!-- content -->
+<div id="content" class="app-content">
+    <!--loading animate-->
+    <div id="loading" class="butterbar active hide">
+            <span class="bar"></span>
+        </div>  <!-- / aside -->
+
+<!-- <div id="content" class="app-content"> -->
+  <a class="off-screen-toggle hide"></a>
+  <main class="app-content-body ">
+    <div class="hbox hbox-auto-xs hbox-auto-sm">
+      <div class="col center-part" >
+                        <!--公告位置-->
+          <div class="alert alert-warning alert-block" style="
+              margin-bottom: 0px;">
+              <button type="button" class="close" data-dismiss="alert">×</button><p><i class="fontello fontello-volume-up" aria-hidden="true"></i>&nbsp;
+                  欢迎来到小雕博客，玩的开心。</p>
+          </div>
+              <!--/公告位置-->
+                  <header class="bg-light lter wrapper-md">
+          <h1 class="m-n font-thin text-black l-h">小窝</h1>
+          <small class="text-muted letterspacing indexWords">无聊的时候就需要给自己找事做。</small>
+          </header>
+        <div class="wrapper-md" id="post-panel">
+
+                        <!--首页输出文章-->
+
+            <div class="blog-post">
+                {% for p in posts %}
+<div class="single-post panel">
+    <div class="index-post-img">
+        <a href="{{ url_for('posts.posts_detail',pid=p.id, _external=True) }}">
+                 <div class="item-thumb lazy"> <img src="{{ url_for('static',filename='upload/'+p.img) }}"
+                 style="width: 800px; height: 250px; border-radius: 5px;object-fit: cover;">
+</div>
+        </a>
+    </div><div class="post-meta wrapper-lg">    <h2 class="m-t-none text-ellipsis index-post-title text-title"><a
+    href="{{ url_for('posts.posts_detail',pid=p.id, _external=True) }}">{{ p.title }}</a></h2><p class="summary l-h-2x text-muted"><a
+        href="{{ url_for('posts.posts_detail',pid=p.id, _external=True) }}">{{ p.article|safe|striptags|showEllipsis }}</a></p><div class="line line-lg b-b b-light"></div>
+<div class="text-muted post-item-foot-icon text-ellipsis list-inline">
+<li>
+<span class="m-r-sm right-small-icons"><i data-feather="user"></i></span><a href="{{ url_for('posts.posts_detail',pid=p.id, _external=True) }}">{{ p.user.username }}</a></li>
+
+<span class="right-small-icons m-r-sm"><i data-feather="clock"></i></span>
+    {{ moment(p.timestamp).format('YYY-MM-D H:m:s') }}&nbsp;
+    <li><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">{{ p.visit }}</span>
+                    </span></li></div><!--text-muted-->
+</div><!--post-meta wrapper-lg-->
+</div><!--panel/panel-small-->
+{% endfor %}
+</div>
+
+            <!--分页首页按钮-->
+          <nav class="text-center m-t-lg m-b-lg" role="navigation">
+        <ol class="page-navigator">
     {% from 'common/page_macro.html' import page %}
     {{ page(pagination, 'main.index') }}
-  </div>
-  </div>
+        </ol>
+          </nav>
+            <style>
+                .page-navigator>li>a, .page-navigator>li>span{
+                    line-height: 1.42857143;
+                    padding: 6px 12px;
+                }
+            </style>
+        </div>
+      </div>
+      <!--首页右侧栏-->
+               <aside class="asideBar col w-md bg-white-only bg-auto no-border-xs" role="complementary">
+     <div id="sidebar">
+      <section id="tabs-4" class="widget widget_tabs clear">
+       <div class="nav-tabs-alt no-js-hide">
+        <ul class="nav nav-tabs nav-justified box-shadow-bottom-normal tablist" role="tablist">
+         <li data-index="0" class="active" role="presentation"> <a href="#widget-tabs-4-hots" role="tab" aria-controls="widget-tabs-4-hots" aria-expanded="true" data-toggle="tab"><div class="sidebar-icon wrapper-sm"><i data-feather="thumbs-up"></i></div><span class="sr-only">热门文章</span> </a></li>
+                            <li role="presentation" data-index="1"> <a href="#widget-tabs-4-comments" role="tab" aria-controls="widget-tabs-4-comments" aria-expanded="false" data-toggle="tab"><div class="sidebar-icon wrapper-sm"><i  data-feather="message-square"></i></div> <span class="sr-only">最新评论</span> </a></li>
+                        <li data-index="2" role="presentation"> <a href="#widget-tabs-4-random" role="tab" aria-controls="widget-tabs-4-random" aria-expanded="false" data-toggle="tab"> <div class="sidebar-icon wrapper-sm"><i data-feather="gift"></i></div>  <span class="sr-only">随机文章</span>
+             </a></li>
+            <span class="navs-slider-bar"></span>
+        </ul>
+       </div>
+       <div class="tab-content">
+       <!--热门文章-->
+        <div id="widget-tabs-4-hots" class="tab-pane  fade in wrapper-md active" role="tabpanel">
+         <h5 class="widget-title m-t-none text-md">热门文章</h5>
+         <ul class="list-group no-bg no-borders pull-in m-b-none">
+          <li class="list-group-item">
+             {% for v in visit %}
+<li class="list-group-item">
+                <a href="{{ url_for('posts.posts_detail',pid=v.id, _external=True) }}" class="pull-left thumb-sm m-r"><img src="{{ url_for('static',filename='upload/'+v.img) }}" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="{{ url_for('posts.posts_detail',pid=v.id, _external=True) }}" title="{{ v.title }}">{{ v.title }} </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i class="fontello fontello-eye" aria-hidden="true"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">{{ v.visit }}</span>
+                    </span>
+              </small></div></li>
+              {% endfor %}
+         </ul>
+        </div>
+{#                   <!--最新评论-->#}
+{#        <div id="widget-tabs-4-comments" class="tab-pane fade wrapper-md no-js-show" role="tabpanel">#}
+{#         <h5 class="widget-title m-t-none text-md">最新评论</h5>#}
+{#         <ul class="list-group no-borders pull-in auto m-b-none no-bg">#}
+{#                              <li class="list-group-item">#}
+{##}
+{#              <a href="https://www.wnark.com/archives/58.html#comment-158" class="pull-left thumb-sm avatar m-r">#}
+{#                  <img nogallery src="https://q.qlogo.cn/g?b=qq&nk=95385456&s=100" class="img-40px photo img-square normal-shadow">              </a>#}
+{#              <a href="https://www.wnark.com/archives/58.html#comment-158" class="text-muted">#}
+{#                  <!--<i class="iconfont icon-comments-o text-muted pull-right m-t-sm text-sm" title="" aria-hidden="true" data-toggle="tooltip" data-placement="auto left"></i>#}
+{#                  <span class="sr-only"></span>-->#}
+{#              </a>#}
+{#              <div class="clear">#}
+{#                  <div class="text-ellipsis">#}
+{#                      <a href="https://www.wnark.com/archives/58.html#comment-158" title="在路上"> 在路上 </a>#}
+{#                  </div>#}
+{#                  <small class="text-muted">#}
+{#                      <span>#}
+{#                          这个切片能加上加密的参数吗？分享个加密的教程呗|´・ω・)ノ                      </span>#}
+{#                  </small>#}
+{#              </div>#}
+{#          </li>#}
+{#                   </ul>#}
+{#        </div>#}
+                   <!--随机文章-->
+        <div id="widget-tabs-4-random" class="tab-pane fade wrapper-md no-js-show" role="tabpanel">
+            <h5 class="widget-title m-t-none text-md">支持(微信)</h5>
+                <img src="{{ url_for('static',filename='img/pay.jpg') }}">
+        </div>
+       </div>
+      </section>
+      <!--博客信息-->
+               <section id="blog_info" class="widget widget_categories wrapper-md clear">
+       <h5 class="widget-title m-t-none text-md">博客信息</h5>
+       <ul class="list-group box-shadow-wrap-normal">
+                      <li class="list-group-item text-second"><span class="blog-info-icons"> <i data-feather="award"></i></span> <span
+                       class="badge
+           pull-right">{{ art }}</span>文章数目</li>
+                      <li class="list-group-item text-second"><span class="blog-info-icons"> <i data-feather="calendar"></i></span>
+               <span class="badge
+           pull-right">{{ v }}</span>访问量</li>
+           <li class="list-group-item text-second"><span class="blog-info-icons"> <i data-feather="calendar"></i></span>
+               <span class="badge
+           pull-right">175天</span>运行天数</li>
+       </ul>
+      </section>
+{#                        <!--广告位置-->#}
+{#         <section id="a_d_sidebar" class="widget widget_categories wrapper-md clear">#}
+{#             <h5 class="widget-title m-t-none text-md">广告</h5>#}
+{#            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>#}
+{#<!-- handsome全局右侧边栏广告位 -->#}
+{#<ins class="adsbygoogle"#}
+{#     style="display:inline-block;width:200px;height:200px"#}
+{#     data-ad-client="ca-pub-4779708111715019"#}
+{#     data-ad-slot="6257988999"></ins>#}
+{#<script>#}
+{#     (adsbygoogle = window.adsbygoogle || []).push({});#}
+{#</script>         </section>#}
+                  <!--非文章页面-->
+            <section id="tag_cloud-2" class="widget widget_tag_cloud wrapper-md clear">
+       <h5 class="widget-title m-t-none text-md">标签云</h5>
+          <div class="tags l-h-2x">
+                                                                    <a href="#" class="label badge" title="centos" data-toggle="tooltip">python</a>
+                                        <a href="#" class="label badge" title="typecho" data-toggle="tooltip">后端</a>
+                                        <a href="#" class="label badge" title="debian" data-toggle="tooltip">flask</a>
+              <a href="#" class="label badge" title="debian" data-toggle="tooltip">django</a>
+              <a href="#" class="label badge" title="debian" data-toggle="tooltip">爬虫</a>
+              <a href="#" class="label badge" title="debian" data-toggle="tooltip">算法</a>
+                                          </div>
+      </section>
+        </div>
+     </aside>
+      </div>
+  </main>
+    <!-- footer -->
+  </div><!-- /content -->
+  <footer id="footer" class="app-footer" role="footer">
+    <div class="wrapper bg-light">
+        <span class="text-ellipsis">&copy;&nbsp;2020 alone&nbsp;<a href="http://www.beian.miit.gov.cn" target="_Blank">陕ICP备20001402号</a></span>
+    </div>
+      <!--可以去除主题版权信息，最好保留版权信息或者添加主题信息到友链，谢谢你的理解-->
+            <style>
+          .topButton>.btn{
+              top: 0;
+          }
+          </style>
+
+      <div class="topButton panel panel-default">
+          <button id="goToTop" class="btn btn-default no-shadow pos-abt hide  border-radius-half-left"
+                  data-toggle="tooltip" data-placement="left" data-original-title="返回顶部">
+              <i class="fontello fontello-chevron-circle-up" aria-hidden="true"></i>
+          </button>
+      </div>
+  </footer>
+  </div><!--end of .app app-header-fixed-->
+
+<script type="text/javascript" src="https://www.wnark.com/usr/plugins/DPlayer/plugin/hls.min.js"></script>
+<script type="text/javascript" src="https://www.wnark.com/usr/plugins/DPlayer/plugin/flv.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/dplayer/dist/DPlayer.min.js"></script>
+<script type="text/javascript" src="https://www.wnark.com/usr/plugins/DPlayer/assets/player.js"></script><script>
+SearchConfig = {
+    url : "https://www.wnark.com/usr/plugins/Handsome/cache/search.json"
+}
+</script>
+  <script>
+{{ moment.include_jquery() }}
+{#导入js#}
+{{ moment.include_moment() }}
+{#格式化中国的时间#}
+{{ moment.locale('zh-CN') }}
+  </script>
+
+<script>
+// Powered by wuxianucw
+console.log('PartiallyPassword is enabled.');
+</script>
+    <!--定义全局变量-->
+    <script type="text/javascript">
+        window['LocalConst'] = {
+            COMMENT_NAME_INFO: '必须填写昵称或姓名',
+            COMMENT_EMAIL_INFO: '必须填写电子邮箱地址',
+            COMMENT_EMAIL_LEGAL_INFO: '邮箱地址不合法',
+            COMMENT_CONTENT_INFO: '必须填写评论内容',
+            COMMENT_SUBMIT_ERROR: '提交失败，请重试！',
+            COMMENT_CONTENT_LEGAL_INFO: '提交失败,评论被拦截，可能发言太快或内容不符合规则',
+
+            LOGIN_USERNAME_INFO: '必须填写用户名',
+            LOGIN_PASSWORD_INFO: '请填写密码',
+            LOGIN_SUBMIT_ERROR: '登录失败，请重新登录',
+            LOGIN_SUBMIT_INFO: '用户名或者密码错误，请重试',
+            LOGIN_SUBMIT_SUCCESS: '登录成功',
+            CLICK_TO_REFRESH: '点击以刷新页面',
+            LOGOUT_SUCCESS_REFRESH: '退出成功，正在刷新当前页面',
+
+            LOGOUT_ERROR: '退出失败，请重试',
+            LOGOUT_SUCCESS: '退出成功',
+
+            SUBMIT_PASSWORD_INFO: '密码错误，请重试',
+            COMMENT_TITLE: '评论通知',
+            LOGIN_TITLE: '登录通知',
+            ChANGYAN_APP_KEY: '',
+            CHANGYAN_CONF: '',
+
+            COMMENT_SYSTEM: '0',
+            COMMENT_SYSTEM_ROOT: '0',
+            COMMENT_SYSTEM_CHANGYAN: '1',
+            COMMENT_SYSTEM_OTHERS: '2',
+            EMOJI: '表情',
+            IS_PJAX: '1',
+            IS_PAJX_COMMENT: '1',
+            BASE_SCRIPT_URL: 'https://www.wnark.com/usr/themes/handsome/',
+            BLOG_URL: 'https://www.wnark.com/',
+            BLOG_URL_PHP: 'https://www.wnark.com/',
+            THEME_COLOR: '8',
+            THEME_COLOR_EDIT: '',
+            THEME_HEADER_FIX: '1',
+            THEME_ASIDE_FIX: '1',
+            THEME_ASIDE_FOLDED: '',
+            THEME_ASIDE_DOCK: '',
+            THEME_CONTAINER_BOX: '1',
+            THEME_HIGHLIGHT_CODE: '1',
+            THEME_TOC: '1',
+            TOC_TITLE: '文章目录',
+            HEADER_FIX: '固定头部',
+            ASIDE_FIX: '固定导航',
+            ASIDE_FOLDED: '折叠导航',
+            ASIDE_DOCK: '置顶导航',
+            CONTAINER_BOX: '盒子模型',
+            OFF_SCROLL_HEIGHT: '50',
+            COMMENT_REJECT_PLACEHOLDER: '居然什么也不说，哼',
+            COMMENT_PLACEHOLDER: '说点什么吧……',
+            SHOW_SETTING_BUTTON: '',
+            THEME_VERSION: '6.0.020191205',
+
+            OPERATION_NOTICE: '操作通知',
+            SCREENSHOT_BEGIN: '正在生成当前页面截图……',
+            SCREENSHOT_NOTICE: '点击顶部下载按钮保存当前卡片',
+            SCREENSHORT_ERROR: '由于图片跨域原因导致截图失败',
+            SCREENSHORT_SUCCESS: '截图成功',
+            MUSIC_NOTICE: '播放通知',
+            MUSIC_FAILE: '当前音乐地址无效，自动为您播放下一首',
+            MUSIC_FAILE_END: '当前音乐地址无效',
+            MUSIC_LIST_SUCCESS: '歌单歌曲加载成功',
+            CDN_NAME: '',
+            LAZY_LOAD: ''
+        };
+
+    </script>
+
+
+
+<!--CDN加载-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/wnark/handsome-assets@master/6.0.0/js/features/jquery.pjax.min.js" type="text/javascript"></script>
+    <script>
+        $(document).pjax('a[href^="https://www.wnark.com/"]:not(a[target="_blank"], a[no-pjax])', {
+            container: '#content',
+            fragment: '#content',
+            timeout: 8000
+        }).on('pjax:send',function () {
+                        $('#loading').removeClass('hide');
+                    }).on('pjax:click', function() {
+
+            window['Page'].doPJAXClickAction();
+
+                        $('body,html').animate({scrollTop:0},100);
+
+
+        }).on('pjax:complete', function() {
+            window['Page'].doPJAXCompleteAction();
+            if ($(".post-position").length > 0){
+                window['Page'].doPJAXCompletePostAction();
+            }
+                                    $('#loading').addClass('hide');
+
+            loadDPlayer();
+
+        })
+    </script>
+
+
+<!--主题组件js加载-->
+
+    <!--平滑滚动组件-->
+    <script src="https://cdn.jsdelivr.net/gh/wnark/handsome-assets@master/6.0.0/js/features/SmoothScroll.min.js"></script>
+
+
+<!--pjax动画组件-->
+
+
+<script src="https://cdn.jsdelivr.net/gh/wnark/handsome-assets@master/6.0.0/js/features/feather.min.js?v=6.0.020191205"></script>
 
 
 
 
-{% endblock %}
+<!--lightgallery必备组件-->
+<script src="https://cdn.jsdelivr.net/gh/wnark/handsome-assets@master/6.0.0/js/features/jquery.fancybox.min.js?v=6.0.020191205"></script>
+<script src="https://cdn.jsdelivr.net/gh/wnark/handsome-assets@master/6.0.0/js/features/easypiechart.min.js?v=6.0.020191205"></script>
+
+
+    <!--component/comments.php 页面必需js（只有选择了原生评论的时候才会加载）-->
+    <script src="https://cdn.jsdelivr.net/gh/wnark/handsome-assets@master/6.0.0/js/features/OwO.min.js?v=6.0.020191205"></script>
+    <!--component/comments.php 必需js结束-->
+
+
+<!--主题组件js加载结束-->
+
+<!--主题核心js-->
+    <script src="https://cdn.jsdelivr.net/gh/wnark/handsome-assets@master/6.0.0/js/function.min.js?v=6.0.020191205"></script>
+    <script src="https://cdn.jsdelivr.net/gh/wnark/handsome-assets@master/6.0.0/js/core.min.js?v=6.0.020191205"></script>
+
+
+
+
+    <script type="text/javascript">
+            </script>
+
+
+</body>
+</html><!--html end-->
+    <!-- / footer -->
+
+
+
