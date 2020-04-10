@@ -41,29 +41,29 @@ def send_posts():
     # 判断登录后在进行发表
     if not current_user.is_authenticated:
         flash('您还没有登录  请登录后再发表')
-    if current_user.id != 1:
-        flash('您没有发表博客的权限！')
     else:
-        if form.validate_on_submit():
-            # md格式
-            article = request.form['article']
-            ctgs = request.form['ctgs']
-            tags = Categorys.query.filter_by(categorys=ctgs).first()
-            # 图片上传
-            img = request.files.get('img')  # 获取上传对象
-            suffix = img.filename.split('.')[-1]  # 获取后缀
-            newName = random_filename(suffix)  # 获取新图片的名称
-            # 以新名称保存图片
-            file.save(img, name=newName)
-            delPath = current_app.config['UPLOADED_PHOTOS_DEST']
-            # 拼接图片路径
-            path = os.path.join(delPath, newName)
-            # 进行缩放
-            img_zoom(path)
-            post = Posts(title=form.title.data, user=current_user, article=article, img=newName,tags=[tags])
-            post.save()
-            flash('博客发表成功')
-            return redirect(url_for('main.index'))
+        if current_user.id != 1:
+            flash('您没有发表博客的权限！')
+            if form.validate_on_submit():
+                # md格式
+                article = request.form['article']
+                ctgs = request.form['ctgs']
+                tags = Categorys.query.filter_by(categorys=ctgs).first()
+                # 图片上传
+                img = request.files.get('img')  # 获取上传对象
+                suffix = img.filename.split('.')[-1]  # 获取后缀
+                newName = random_filename(suffix)  # 获取新图片的名称
+                # 以新名称保存图片
+                file.save(img, name=newName)
+                delPath = current_app.config['UPLOADED_PHOTOS_DEST']
+                # 拼接图片路径
+                path = os.path.join(delPath, newName)
+                # 进行缩放
+                img_zoom(path)
+                post = Posts(title=form.title.data, user=current_user, article=article, img=newName,tags=[tags])
+                post.save()
+                flash('博客发表成功')
+                return redirect(url_for('main.index'))
     return render_template('posts/send_posts.html', form=form, ctgs=ctgs)
 
 

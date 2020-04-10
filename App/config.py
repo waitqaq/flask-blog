@@ -11,13 +11,14 @@ class Config:
     BOOTSTRAP_SERVER_LOCAL = True  # 加载本地静态资源文件
     # 邮件发送配置
     # 端口号
-    MAIL_PROT = 465,
+    MAIL_PORT = 465
+    MAIL_USE_SSL = True
     # 邮箱服务器
     MAIL_SERVER = 'smtp.163.com'
     # 用户名
     MAIL_USERNAME = 'alone_3@163.com'
     # 密码
-    MAIL_PASSWORD = 'z123456'
+    MAIL_PASSWORD = 'ZYOVHEHBEHIPWBZW'
     # 分页每页显示数据条数
     PAGE_NUM = 6
     # 文件上传配置
