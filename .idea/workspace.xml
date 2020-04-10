@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02b5bc8d-b777-4c6c-90cc-721126880e6d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blog.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/static/editormd/editormd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/App/static/editormd/editormd.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/static/editormd/plugins/image-dialog/image-dialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/App/static/editormd/plugins/image-dialog/image-dialog.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/common/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/common/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/main/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/views/posts.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/views/posts.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -190,6 +183,7 @@
       <workItem from="1586354701657" duration="1129000" />
       <workItem from="1586391458192" duration="5908000" />
       <workItem from="1586483467844" duration="7465000" />
+      <workItem from="1586529333242" duration="1575000" />
     </task>
     <servers />
   </component>
