@@ -8,4 +8,20 @@
 4. 文章分页以及分类与分类展示
 5. 全局搜索功能
 
-使用：将mysql数据库更改为自己的数据库，然后进行迁移、更新即可
+使用：
+
+#### １、建立mysql数据库，我的库名为(alone_blog)，或者改为你们自己的库，并在项目目录下的App/config.py里面进行更改。
+
+#### 2、删除migrations文件，然后依次执行
+
+- python3 manage.py db init
+- python3 manage.py db migrate
+- python3 manage.py db upgrade
+
+#### 3、执行命令行进行启动
+
+```python
+python3 manage.py runserver
+```
+
+这个时候打开你的本地浏览器，输入 http://127.0.0.1:5000就可以看到博客页面啦
