@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="02b5bc8d-b777-4c6c-90cc-721126880e6d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/views/posts.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/views/posts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/posts/posts_ctgs.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/posts/posts_ctgs.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,6 +184,8 @@
       <workItem from="1586391458192" duration="5908000" />
       <workItem from="1586483467844" duration="7465000" />
       <workItem from="1586529333242" duration="1575000" />
+      <workItem from="1586568843337" duration="61000" />
+      <workItem from="1586739193822" duration="891000" />
     </task>
     <servers />
   </component>
@@ -199,10 +201,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586492962007" />
-    <state x="945" y="263" key="FileChooserDialogImpl" timestamp="1586391711781">
+    <state x="945" y="263" key="FileChooserDialogImpl" timestamp="1586568900949">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="945" y="263" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586391711781" />
+    <state x="945" y="263" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586568900949" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1586320894301">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
