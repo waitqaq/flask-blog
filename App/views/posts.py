@@ -36,7 +36,6 @@ def img_zoom(path, width=1000, height=250):
 @posts.route('/send_posts/', methods=['GET', 'POST'])
 def send_posts():
     form = SendPosts()
-    user = User.query.get(1)
     ctgs = Categorys.query.all()
     # 判断登录后在进行发表
     if not current_user.is_authenticated:
