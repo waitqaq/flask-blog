@@ -31,4 +31,4 @@ def index():
 
     cs = Categorys.query.all()
 
-    return render_template('main/index.html',posts=data, pagination=pagination,art = art,visit=visit,v=v,ctgs=cs)
+    return render_template('main/index.html', posts=data, pagination=pagination, art = art, visit=visit, v=v, ctgs=cs)

@@ -27,7 +27,7 @@ def img_zoom(path, width=1000, height=250):
     # 打开文件
     img = Image.open(path)
     # 重新设计尺寸
-    img.thumbnail((width, height))
+    # img.thumbnail((width, height))
     # 保存缩放后的图片 保留原图片
     # 保存缩放
     img.save(path)
