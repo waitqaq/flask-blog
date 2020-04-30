@@ -30,5 +30,7 @@ def index():
     v=sum(list)
 
     cs = Categorys.query.all()
+    comments_five = Posts.query.filter(Posts.pid!=0)[0:5]
 
-    return render_template('main/index.html', posts=data, pagination=pagination, art = art, visit=visit, v=v, ctgs=cs)
+
+    return render_template('main/index.html', posts=data, pagination=pagination, art = art, visit=visit, v=v, ctgs=cs,comments_five=comments_five)

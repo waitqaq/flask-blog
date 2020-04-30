@@ -2,12 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02b5bc8d-b777-4c6c-90cc-721126880e6d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/App/templates/main/index2.0.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/common/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/common/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/main/1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.qiniu_pythonsdk_hostscache.json" beforeDir="false" afterPath="$PROJECT_DIR$/.qiniu_pythonsdk_hostscache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/common/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/common/base1.0.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/main/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/main/index11111111.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/main/index_1.0.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/main/index_1.0.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/main/index_1.0.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/owncenter/edit_posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/owncenter/edit_posts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/owncenter/posts_manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/owncenter/posts_manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/owncenter/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/owncenter/upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/owncenter/user_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/owncenter/user_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/posts/add_categorys.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/posts/add_categorys.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/posts/delete_categorys.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/posts/delete_categorys.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/posts/posts_ctgs.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/posts/posts_ctgs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/posts/posts_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/posts/posts_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/posts/search_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/posts/search_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/posts/send_posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/posts/send_posts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/user/again_active.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/user/again_active.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/user/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/user/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/user/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/views/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/views/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/views/posts.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/views/posts.py" afterDir="false" />
     </list>
@@ -72,7 +85,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/App/static/editormd" />
+    <property name="last_opened_file_path" value="D:/homework-python/xiecheng" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -193,6 +206,8 @@
       <workItem from="1586568843337" duration="61000" />
       <workItem from="1586739193822" duration="2621000" />
       <workItem from="1586743127319" duration="13420000" />
+      <workItem from="1586849956598" duration="30000" />
+      <workItem from="1588206963656" duration="21810000" />
     </task>
     <servers />
   </component>
@@ -208,10 +223,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586492962007" />
-    <state x="945" y="263" key="FileChooserDialogImpl" timestamp="1586568900949">
+    <state x="945" y="263" key="FileChooserDialogImpl" timestamp="1586849984246">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="945" y="263" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586568900949" />
+    <state x="945" y="263" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586849984246" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1586320894301">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

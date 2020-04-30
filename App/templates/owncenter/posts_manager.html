@@ -1,4 +1,4 @@
-{% extends 'common/base.html' %}
+{% extends 'common/base1.0.html' %}
 {% block title %}
     博客管理
 {% endblock %}
@@ -46,6 +46,6 @@
     </table>
     </div>
     {# 分页 #}
-    {% from 'common/page_macro.html' import page %}
-    {{ page(pagination, 'owncenter.posts_manager') }}
+{#    {% from 'common/page_macro.html' import page %}#}
+{#    {{ page(pagination, 'owncenter.posts_manager') }}#}
 {% endblock %}

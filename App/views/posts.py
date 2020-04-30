@@ -151,8 +151,10 @@ def posts_detail(pid):
     # 查询出博客的评论内容和回复，按照博客内容和回复在一起的排序顺序，
     # 过滤条件为博客path中包含博客id的，这样博客就将博客的内容过滤出去，只查询评论和留言
     comment = Posts.query.filter(Posts.path.contains(str(pid))).order_by(Posts.path.concat(Posts.id))
+    ctgs = Categorys.query.all()
+    comment_nums = Posts.query.filter(Posts.path.contains(str(pid))).count()
 
-    return render_template('posts/posts_detail.html', posts=p, form=form, comment=comment)
+    return render_template('posts/posts_detail.html', posts=p, form=form, comment=comment, ctgs=ctgs, comment_nums=comment_nums)
 
 
 # 评论和回复

@@ -3,64 +3,96 @@
     博客详情
 {% endblock %}
 {% block styles %}
-{{ super() }}
     <link href="{{ url_for('static', filename='editormd/css/editormd.preview.min.css') }}" rel="stylesheet" />
     <link href="{{ url_for('static', filename='editormd/css/editormd.css') }}" rel="stylesheet" />
-            <style>
 
-            #sidebar {
-                width: 15%;
-                height: 100%;
-                position: fixed;
-                top: 70px;
-                right: 0;
-                left: 0;
-                overflow: hidden;
-
-                z-index: 100;
-
-                border-top: none;
-                border-bottom: none;
-            }
-
-            #sidebar:hover {
-                overflow: auto;
-            }
-
-            #sidebar h1 {
-                font-size: 40px;
-            }
-
-            #custom-toc-container {
-                padding-left: 0;
-                background: rgba(255,255,255,0.5);
-                border-radius: 15px;
-                font-size: 18px;
-            }
-        </style>
 {% endblock %}
 
-{% block page_content %}
-    <div style="padding: 5px 5px;background-color: rgba(255,255,255,0.3);border-radius: 15px">
-    <br>
-    {# 博客内容的展示 #}
-    <h2>&nbsp;&nbsp;&nbsp;&nbsp;{{ posts.title }}</h2>
-    <hr style="border: 4px double orange ">
-    <br>
+{% block body %}
+
+      <!-- aside -->
+  <!--选择侧边栏的颜色-->
+  <aside id="aside" class="app-aside hidden-xs bg-light" >  <!--<aside>-->
+                <h3>&nbsp;<i data-feather="book-open"></i>目录</h3>
+                <div class="markdown-body editormd-preview-container" id="custom-toc-container"></div>
+  </aside>
+<!-- content -->
+<div id="content" class="app-content">
+    <!--loading animate-->
+    <div id="loading" class="butterbar active hide">
+            <span class="bar"></span>
+        </div>  <!-- / aside -->
+
+<!-- <div id="content" class="app-content"> -->
+  <a class="off-screen-toggle hide"></a>
+  <main class="app-content-body ">
+    <div class="hbox hbox-auto-xs hbox-auto-sm">
+      <div class="col center-part">
+                                  <!--公告位置-->
+          <div class="alert alert-warning alert-block" style="
+              margin-bottom: 0px;">
+              <button type="button" class="close" data-dismiss="alert">×</button><p><i data-feather="at-sign" aria-hidden="true"></i>&nbsp;
+                  欢迎来到小雕博客，玩的开心。</p>
+          </div>
+                  <header class="bg-light lter wrapper-md">
+          <h1 class="m-n font-thin text-black l-h">{{ posts.title }}</h1>
+          <ul  class="entry-meta text-muted list-inline m-b-none small
+             post-head-icon">
+             <!--作者-->
+             <li class="meta-author"><span class="post-icons"><i data-feather="user"></i></span><span
+                         class="sr-only">博主：</span> {{ posts.user.username }}</li>
+             <!--发布时间-->
+             <li class="meta-date"><span class="post-icons"><i data-feather="clock"></i></span><span class="sr-only">发布时间：</span><time class="meta-value">{{ moment(posts.timestamp).format('YYYY-MM-DD H:m:s') }}</time></li>
+             <!--浏览数-->
+             <li class="meta-views"><span class="post-icons"><i data-feather="eye"></i></span><span class="meta-value">{{ posts.visit }}次浏览</span></li>
+                              <!--评论数-->
+                 <li class="meta-comments"><span class="post-icons"><i data-feather="message-circle"></i></span><a
+                             class="meta-value" href="#">{{ comment_nums }} 条评论</a></li>
+
+{#             <!--文字数目-->#}
+{#             <li class="meta-word"><span class="post-icons"><i data-feather="pen-tool"></i></span><span class="meta-value">27字数</span></li>#}
+{#             <!--分类-->#}
+{#             <li class="meta-categories"><span class="post-icons"><i data-feather="hash"></i></span><span class="sr-only">分类：</span> <span class="meta-value"><a href="http://jiuaidy.tk/index.php/category/default/">默认分类</a></span></li>#}
+         </ul>
+          </header>
+        <div class="wrapper-md" id="post-panel">
+
+                        <!--首页输出文章-->
+
+           <div class="blog-post">
+<div>
+
 
     {# 博客内容 #}
-            <div id="sidebar">
-                <h1>目录</h1>
-                <div class="markdown-body editormd-preview-container" id="custom-toc-container"></div>
-            </div>
-            <div id="test-editormd-view1" style="background-color: rgba(255,255,255,0.5);border-radius: 15px;font-size: 18px">
+
+            <div id="test-editormd-view1">
                <textarea style="display:none" name="test-editormd-markdown-doc" >{{ posts.article }}</textarea>
             </div>
-    <br><br><br>
-    <span style="float: right">
-        <p>作者：<span style="font-weight: bold;font-size: 18px">{{ posts.user.username }}</span></p>
-        <p>发表于：<span style="font-size: 18px">{{ moment(posts.timestamp).format('YYYY-MM-DD H:m:s') }}</span></p>
-    </span>
+            <div class="support-author">
+                 <button data-toggle="modal" data-target="#myModal" class="btn btn-pay btn-danger btn-rounded">き&nbsp;赞赏</button>
+                 <div class="mt20 text-center article__reward-info">
+                     <span class="mr10">如果觉得我的文章对你有用，请随意赞赏</span>
+                 </div>
+             </div>
+             <div id="myModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                 <div class="modal-dialog modal-sm" role="document">
+                     <div class="modal-content">
+                         <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                             <h4 class="modal-title">赞赏作者</h4>
+                         </div>
+                         <div class="modal-body">
+                             <p class="text-center article__reward"> <strong class="article__reward-text">扫一扫支付</strong> </p>
+                             <div class="tab-content"><img noGallery aria-labelledby="alipay-tab" class="pay-img tab-pane fade in active" id="alipay_author" role="tabpanel" src="http://cdnonline.top/zhifubao.JPG" /><img noGallery aria-labelledby="wechatpay-tab" class="pay-img tab-pane fade" id="wechatpay_author" role="tabpanel" src="http://cdnonline.top/weixin.JPG" /></div>
+                             <div class="article__reward-border mb20 mt10"></div>
+
+                             <div class="text-center" role="tablist"><div class="pay-button" role="presentation" class="active"><button  href="#alipay_author" id="alipay-tab" aria-controls="alipay_author" role="tab" data-toggle="tab" class="btn m-b-xs m-r-xs btn-info"><i class="iconfont icon-alipay" aria-hidden="true"></i><span>&nbsp;支付宝支付</span></button>
+                                 </div><div class="pay-button" role="presentation"><button href="#wechatpay_author" id="wechatpay-tab" aria-controls="wechatpay_author" role="tab" data-toggle="tab" class="btn m-b-xs btn-success"><i class="iconfont icon-wechatpay" aria-hidden="true"></i><span>&nbsp;微信支付</span></button>
+                                 </div></div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
 
     <div class="page-header" style="clear: both"><h3>发表评论</h3></div>
     <form action="{{ url_for('posts.comment') }}" method="post">
@@ -74,7 +106,7 @@
     <div class="page-header" style="clear: both"><h3>评论内容</h3></div>
     {# 评论和回复内容的显示 #}
     {% for message in comment %}
-     <div class="media"  style="background-color: rgba(255,255,255,0.5);padding: 15px 15px;border-radius: 15px">
+     <div class="media">
       <div class="media-left media-middle">
         <a href="#">
           <img class="media-object" src="{{ url_for('static', filename='upload/'+message.user.icon,_external=True) }}" alt="..."  width="50" style="border-radius: 5px;border-top:2px solid #ccc;border-right:2px solid #ccc;">
@@ -104,6 +136,146 @@
     {% endfor %}
 
     </div>
+           <script>
+               {{ moment.include_jquery() }}
+        {{ moment.include_moment() }}　　
+    {{ moment.locale('zh-cn') }}
+</script>
+</div>
+        </div>
+      </div>
+            <!--首页右侧栏-->
+     <aside class="asideBar col w-md bg-white-only bg-auto no-border-xs" >
+        <div class="aside-wrap" layout="column">
+        <div class="navi-wrap scroll-y scroll-hide" flex>
+          <!-- user -->
+          <div class="clearfix hidden-xs text-center hide  show" id="aside-user">
+            <div class="dropdown wrapper vertical-wrapper">
+                <div ui-nav>
+                          <a href="https://www.wnark.com/cross.html">
+                            <span class="thumb-lg w-auto-folded avatar m-t-sm  vertical-avatar">
+                  <img src="{{ url_for('static',filename='img/tou.jpg',_external=True) }}" class="img-full img-circle normal-shadow">
+                </span>
+              </a>
+                </div>
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle hidden-folded  vertical-flex">
+                <span class="clear">
+                  <span class="block m-t-sm">
+                    <strong class="font-bold text-lt" style="font-size: 20px">alone</strong>
+                    <b class="caret"></b>
+                  </span>
+                  <span class="text-muted text-xs block">sunny!</span>
+                </span>
+              </a>
+              <!-- dropdown -->
+              <ul class="dropdown-menu animated fadeInRight w hidden-folded no-padder">
+                <li class="wrapper b-b m-b-sm bg-info m-n">
+                  <span class="arrow top hidden-folded arrow-info"></span>
+                  <div>
+                                                  <p>早上好，永远年轻，永远热泪盈眶</p>
+                                  </div>
+                  <div class="progress progress-xs m-b-none dker">
+                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过33.33%" style="width: 33.33%"></div>
+                  </div>
+                </li>
+              </ul>
+              <!-- / dropdown -->
+            </div>
+          </div>
+          <!-- / user -->
+
+          <!-- nav -->
+          <nav ui-nav class="navi clearfix">
+            <ul class="nav">
+             <!--index-->
+                <div class="line dk hidden-folded"></div>
+                <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                <span>导航</span>
+              </li>
+                                          <!--主页-->
+              <li>
+                <a href="http://alonezd.top" class="auto">
+                    <span class="nav-icon"><i data-feather="home"></i></span>
+                    <span>首页</span>
+                </a>
+                                  <a href="{{ url_for('posts.send_posts',_external=True) }}" class="auto">
+{#                    <span class="nav-icon"><i data-feather="file"></i>#}
+                    <span class="nav-icon"><i data-feather="file"></i></span>
+                    <span>写博客</span>
+                </a>
+              </li>
+              <!-- /主页 -->
+                                                          <li class="line dk"></li>
+			<!--Components-->
+              <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                <span>组成</span>
+              </li>
+              <!--分类category-->
+                              <li >
+                <a class="auto">
+                    <span class="pull-right text-muted">
+{#                    <i class="fontello icon-fw fontello-angle-right text"></i>#}
+{#                    <i class="fontello icon-fw fontello-angle-down text-active"></i>#}
+                        >
+                  </span>
+<!--                  <i class="glyphicon glyphicon-th"></i>-->
+                    <span class="nav-icon"><i data-feather="grid"></i></span>
+
+                    <span>分类</span>
+                </a>
+                <ul class="nav nav-sub dk">
+                  <li class="nav-sub-header">
+                    <a>
+                      <span>分类</span>
+                    </a>
+                  </li>
+                  <!--循环输出分类-->
+                    <li>
+                            {% for c in ctgs %}
+                         <a href="{{ url_for('posts.posts_ctgs',pid=c.id) }}"><b class="badge pull-right">
+                            {{ c.posts | length }}
+                         </b><span></span>{{ c.categorys }}</a>
+                        {% endfor %}
+                    </li>
+                </ul>
+
+                    </li>
+              <!--友情链接-->
+              <li>
+                <a class="auto">
+                  <span class="pull-right text-muted">
+{#                    <i class="fontello icon-fw fontello-angle-right text"></i>#}
+{#                    <i class="fontello icon-fw fontello-angle-down text-active"></i>#}
+                    >
+                  </span>
+                    <span class="nav-icon"><i data-feather="user"></i></span>
+                  <span>友链</span>
+                </a>
+                <ul class="nav nav-sub dk">
+                  <li class="nav-sub-header">
+                    <a data-no-instant>
+                      <span>友链</span>
+                    </a>
+                  </li>
+                  <!--使用links插件，输出全站友链-->
+                 <li data-original-title="有趣的人" data-toggle="tooltip" data-placement="top">
+                     <a href="https://blog.seasonseason.top/" target="_blank"><span>Season</span></a></li>
+                 </ul>
+              </li>
+                            </ul>
+          </nav>
+          <!-- nav -->
+        </div>
+          <!--end of .navi-wrap-->
+          <!--left_footer-->
+
+      </div><!--.aside-wrap-->
+     </aside>
+      </div>
+
+  </main>
+    <!-- footer -->
+  </div><!-- /content -->
 {% endblock %}
 
 {% block scripts %}

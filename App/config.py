@@ -28,7 +28,7 @@ class Config:
     QINIU_ACCESS_KEY = "mJZ9wIcnIojbofK8RsH-Dk8g_foWdC5B1DHNzME5"
     QINIU_SECRET_KEY = "zvGGpYbqKJV_2_V6dAacPGyijmbkH21lAJHKyFoA"
     QINIU_BUCKET_NAME = "aloneblog"
-    QINIU_BUCKET_DOMAIN = 'q6hugol9x.bkt.clouddn.com'
+    QINIU_BUCKET_DOMAIN = 'cdnonline.top'
 
 
 # 开发环境
