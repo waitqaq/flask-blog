@@ -3,8 +3,6 @@
     小雕的窝
 {% endblock %}
 
-<body id="body" class="fix-padding">
-
 {% block body %}
 
   <!-- aside -->
@@ -122,8 +120,11 @@
                   <!--使用links插件，输出全站友链-->
                  <li data-original-title="有趣的人" data-toggle="tooltip" data-placement="top">
                      <a href="https://blog.seasonseason.top/" target="_blank"><span>Season</span></a></li>
+                                     <li data-original-title="云有论坛" data-toggle="tooltip" data-placement="top">
+                     <a href="https://www.yunyoucc.com/u/2" target="_blank"><span>yunyou</span></a></li>
                  </ul>
               </li>
+
                             </ul>
           </nav>
           <!-- nav -->
@@ -166,7 +167,7 @@
 <div class="single-post panel">
     <div class="index-post-img">
         <a href="{{ url_for('posts.posts_detail',pid=p.id, _external=True) }}">
-                 <div class="item-thumb lazy"> <img src="{{ url_for('static',filename='upload/'+p.img) }}"
+                 <div class="item-thumb lazy"> <img src="{{ p.img }}"
                  style="width: 800px; height: 250px; border-radius: 5px;object-fit: cover;">
 </div>
         </a>
@@ -228,7 +229,7 @@ data-feather="message-square"></i></span><a href="http://jiuaidy.tk/index.php/ar
           <li class="list-group-item">
              {% for v in visit %}
 <li class="list-group-item">
-                <a href="{{ url_for('posts.posts_detail',pid=v.id, _external=True) }}" class="pull-left thumb-sm m-r"><img src="{{ url_for('static',filename='upload/'+v.img) }}" class="img-40px normal-shadow img-square"></a>
+                <a href="{{ url_for('posts.posts_detail',pid=v.id, _external=True) }}" class="pull-left thumb-sm m-r"><img src="{{ v.img }}" class="img-40px normal-shadow img-square"></a>
                 <div class="clear">
                     <h4 class="h5 l-h text-second"> <a href="{{ url_for('posts.posts_detail',pid=v.id, _external=True) }}" title="{{ v.title }}">{{ v.title }} </a></h4>
                     <small class="text-muted post-head-icon"><span class="meta-date"> <i data-feather="message-circle"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">{{ v.visit }}</span>
@@ -244,13 +245,13 @@ data-feather="message-square"></i></span><a href="http://jiuaidy.tk/index.php/ar
             {% for comment in comments_five %}
            <li class="list-group-item">
 
-              <a href="http://jiuaidy.tk/index.php/archives/1/#comment-2" class="pull-left thumb-sm avatar m-r">
+              <a href="#" class="pull-left thumb-sm avatar m-r">
                   <img src="{{ url_for('static',filename='upload/'+comment.user.icon) }}" class="img-40px photo img-square normal-shadow">              </a>
-              <a href="http://jiuaidy.tk/index.php/archives/1/#comment-2" class="text-muted">
+              <a href="#" class="text-muted">
               </a>
               <div class="clear">
                   <div class="text-ellipsis">
-                      <a href="http://jiuaidy.tk/index.php/archives/1/#comment-2" title="寒夜方舟"> {{ comment.user.username }} </a>
+                      <a href="#" title=""> {{ comment.user.username }} </a>
                   </div>
                   <small class="text-muted">
                       <span>
@@ -283,18 +284,12 @@ data-feather="message-square"></i></span><a href="http://jiuaidy.tk/index.php/ar
            pull-right">175天</span>运行天数</li>
        </ul>
       </section>
-{#                        <!--广告位置-->#}
-{#         <section id="a_d_sidebar" class="widget widget_categories wrapper-md clear">#}
-{#             <h5 class="widget-title m-t-none text-md">广告</h5>#}
-{#            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>#}
-{#<!-- handsome全局右侧边栏广告位 -->#}
-{#<ins class="adsbygoogle"#}
-{#     style="display:inline-block;width:200px;height:200px"#}
-{#     data-ad-client="ca-pub-4779708111715019"#}
-{#     data-ad-slot="6257988999"></ins>#}
-{#<script>#}
-{#     (adsbygoogle = window.adsbygoogle || []).push({});#}
-{#</script>         </section>#}
+                        <!--广告位置-->
+         <section id="a_d_sidebar" class="widget widget_categories wrapper-md clear">
+             <h5 class="widget-title m-t-none text-md">广告</h5>
+             <a href="https://www.aliyun.com/activity/daily/cloud?userCode=irb3uyzu">
+            <img src="http://cdnonline.top/200X166.jpg" >
+             </a>
                   <!--非文章页面-->
             <section id="tag_cloud-2" class="widget widget_tag_cloud wrapper-md clear">
        <h5 class="widget-title m-t-none text-md">标签云</h5>

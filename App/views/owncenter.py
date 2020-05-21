@@ -1,10 +1,12 @@
+from datetime import datetime
+
 from flask import Blueprint, render_template, redirect, url_for, flash, request, current_app
 
 from App.models import Posts, Categorys
 from App.forms import UserInfo  # 导入个人信息显示user模型类和文件上传表单类
 from App.forms import SendPosts,Upload  # 用于编辑博客
 from flask_login import current_user, login_required
-from App.extensions import db, file
+from App.extensions import db, file, qiniu_store
 import os
 from App.extensions import file
 from PIL import Image
@@ -126,19 +128,14 @@ def edit_posts(pid):
         tags = Categorys.query.filter_by(categorys=ctgs).first()
         # 图片上传
         img = request.files.get('img')  # 获取上传对象
-        suffix = img.filename.split('.')[-1]  # 获取后缀
-        newName = random_filename(suffix)  # 获取新图片的名称
-        # 以新名称保存图片
-        file.save(img, name=newName)
-        delPath = current_app.config['UPLOADED_PHOTOS_DEST']
-        # 拼接图片路径
-        path = os.path.join(delPath, newName)
-        # 进行缩放
-        img_zoom(path)
+        ex = os.path.splitext(img.filename)[1]
+        filename = datetime.now().strftime('%Y%m%d%H%M%S') + ex
+        file = img.stream.read()
+        qiniu_store.save(file, filename)
 
         p.title = form.title.data
         p.article = article
-        p.img = newName
+        p.img = qiniu_store.url(filename)
         p.tags = [tags]
         p.save()
         flash('博客更新成功')

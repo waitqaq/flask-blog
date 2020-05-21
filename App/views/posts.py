@@ -48,16 +48,11 @@ def send_posts():
             tags = Categorys.query.filter_by(categorys=ctgs).first()
             # 图片上传
             img = request.files.get('img')  # 获取上传对象
-            suffix = img.filename.split('.')[-1]  # 获取后缀
-            newName = random_filename(suffix)  # 获取新图片的名称
-            # 以新名称保存图片
-            file.save(img, name=newName)
-            delPath = current_app.config['UPLOADED_PHOTOS_DEST']
-            # 拼接图片路径
-            path = os.path.join(delPath, newName)
-            # 进行缩放
-            img_zoom(path)
-            post = Posts(title=form.title.data, user=current_user, article=article, img=newName,tags=[tags])
+            ex = os.path.splitext(img.filename)[1]
+            filename = datetime.now().strftime('%Y%m%d%H%M%S') + ex
+            file = img.stream.read()
+            qiniu_store.save(file, filename)
+            post = Posts(title=form.title.data, user=current_user, article=article, img=qiniu_store.url(filename),tags=[tags])
             post.save()
             flash('博客发表成功')
             return redirect(url_for('main.index'))
@@ -119,7 +114,20 @@ def search():
         .order_by(Posts.timestamp.desc()) \
         .paginate(page, current_app.config['PAGE_NUM'], False)  # False 为不抛出异常
     data = pagination.items  # 获取page页面的数据
-    return render_template('posts/search_detail.html', pagination=pagination, posts=data, keyword=keyword)
+    # 将文章(pid=0)对应的的id查询出来，
+    art = Posts.query.filter(Posts.pid==0).count()
+    # 按照访问量排行降序查询，拿出前五
+    visit = Posts.query.filter(Posts.pid == 0, Posts.state == 0).order_by(-Posts.visit)[:5]
+    # 拿到文章对象，进行遍历，然后将访问量放进数组，进行求和
+    article_list = Posts.query.filter(Posts.pid==0)
+    list = []
+    for i in article_list:
+        list.append(i.visit)
+    v=sum(list)
+
+    cs = Categorys.query.all()
+    comments_five = Posts.query.filter(Posts.pid!=0)[0:5]
+    return render_template('posts/search_detail.html', pagination=pagination, posts=data, keyword=keyword,art = art, visit=visit, v=v, ctgs=cs,comments_five=comments_five)
 
 
 # 博客分类
@@ -136,8 +144,21 @@ def posts_ctgs():
         pagination = Posts.query.filter(Posts.title==i.title).order_by(Posts.timestamp.desc()).paginate(page, current_app.config['PAGE_NUM'], False)  # False 为不抛出异常
         data = pagination.items  # 获取page页面的数据
     category = Categorys.query.get(cid)
+    # 将文章(pid=0)对应的的id查询出来，
+    art = Posts.query.filter(Posts.pid==0).count()
+    # 按照访问量排行降序查询，拿出前五
+    visit = Posts.query.filter(Posts.pid == 0, Posts.state == 0).order_by(-Posts.visit)[:5]
+    # 拿到文章对象，进行遍历，然后将访问量放进数组，进行求和
+    article_list = Posts.query.filter(Posts.pid==0)
+    list = []
+    for i in article_list:
+        list.append(i.visit)
+    v=sum(list)
 
-    return render_template('posts/posts_ctgs.html',pagination=pagination,posts=data,category=category)
+    cs = Categorys.query.all()
+    comments_five = Posts.query.filter(Posts.pid!=0)[0:5]
+
+    return render_template('posts/posts_ctgs.html',pagination=pagination,posts=data,category=category,art = art, visit=visit, v=v, ctgs=cs,comments_five=comments_five)
 
 
 # 博客详情

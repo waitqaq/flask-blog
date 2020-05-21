@@ -32,7 +32,7 @@ def init_app(app):
     csrf.init_app(app)
 
     login_manager.login_view = 'user.login'  # 当未登陆时，访问了需要登录的路由时，进行登录的端点
-    login_manager.session_protection = 'strong'  # 设置session的保护级别
+    login_manager.session_protection = 'basic'  # 设置session的保护级别
 
     # 配置文件上传（头像）
     configure_uploads(app,file)

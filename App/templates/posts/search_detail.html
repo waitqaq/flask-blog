@@ -1,34 +1,310 @@
-{% extends 'common/base1.0.html' %}
+{% extends 'common/base.html' %}
 {% block title %}
-    搜索...
+    搜索。。。
 {% endblock %}
 
-{% block page_content %}
-    <h1>搜索关键字“<font style="color: red">{{ keyword }}</font>”的结果为</h1>
-    <br>
-    {# 博客内容的展示 #}
-    {% for p in posts %}
-    <div class="media" style="background-color: rgba(255,255,255,0.8);padding:6px 5px;border-radius: 10px;">
-    <a href="{{ url_for('posts.posts_detail',pid=p.id, _external=True) }}" style="color: #000000;text-decoration: none">
-        <div class="media-left media-middle">
-               <img class="media-object" src="{{ url_for('static',filename='upload/'+p.img) }}" alt="..."   style="border-radius: 5px;border-top:2px solid #ccc;border-right:2px solid #ccc;">
-        </div>
-        <div class="media-body">
-            <h4 class="media-heading" style="font-weight: bold">{{ p.title }}</h4>
-            <span style="font-size: 18px;">{{ p.article|striptags|showEllipsis }}</span>
-        </div>
-                    <br>
+<body id="body" class="fix-padding">
 
-            <div style="float: right;color: black;font-size: 15px">
-                <b>👍:{{ p.visit }}</b>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                {{moment(p.timestamp).format('YYYY-MM-DD H:m:s')}}
+{% block body %}
+
+  <!-- aside -->
+  <!--选择侧边栏的颜色-->
+  <aside id="aside" class="app-aside hidden-xs bg-light" >  <!--<aside>-->
+        <div class="aside-wrap" layout="column">
+        <div class="navi-wrap scroll-y scroll-hide" flex>
+          <!-- user -->
+          <div class="clearfix hidden-xs text-center hide  show" id="aside-user">
+            <div class="dropdown wrapper vertical-wrapper">
+                <div ui-nav>
+                          <a href="https://www.wnark.com/cross.html">
+                            <span class="thumb-lg w-auto-folded avatar m-t-sm  vertical-avatar">
+                  <img src="{{ url_for('static',filename='img/tou.jpg',_external=True) }}" class="img-full img-circle normal-shadow">
+                </span>
+              </a>
+                </div>
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle hidden-folded  vertical-flex">
+                <span class="clear">
+                  <span class="block m-t-sm">
+                    <strong class="font-bold text-lt" style="font-size: 20px">alone</strong>
+                    <b class="caret"></b>
+                  </span>
+                  <span class="text-muted text-xs block">sunny!</span>
+                </span>
+              </a>
+              <!-- dropdown -->
+              <ul class="dropdown-menu animated fadeInRight w hidden-folded no-padder">
+                <li class="wrapper b-b m-b-sm bg-info m-n">
+                  <span class="arrow top hidden-folded arrow-info"></span>
+                  <div>
+                                                  <p>早上好，永远年轻，永远热泪盈眶</p>
+                                  </div>
+                  <div class="progress progress-xs m-b-none dker">
+                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="时间已经度过33.33%" style="width: 33.33%"></div>
+                  </div>
+                </li>
+              </ul>
+              <!-- / dropdown -->
             </div>
-        <hr>
-    </a>
-    </div>
-        {% endfor %}
-    {# 分页 #}
-    {% from 'common/page_macro.html' import page %}
-    {{ page(pagination, 'posts.search',keyword=keyword) }}
+          </div>
+          <!-- / user -->
+
+          <!-- nav -->
+          <nav ui-nav class="navi clearfix">
+            <ul class="nav">
+             <!--index-->
+                <div class="line dk hidden-folded"></div>
+                <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                <span>导航</span>
+              </li>
+                                          <!--主页-->
+              <li>
+                <a href="http://alonezd.top" class="auto">
+                    <span class="nav-icon"><i data-feather="home"></i></span>
+                    <span>首页</span>
+                </a>
+                                  <a href="{{ url_for('posts.send_posts',_external=True) }}" class="auto">
+{#                    <span class="nav-icon"><i data-feather="file"></i>#}
+                    <span class="nav-icon"><i data-feather="file"></i></span>
+                    <span>写博客</span>
+                </a>
+              </li>
+              <!-- /主页 -->
+                                                          <li class="line dk"></li>
+			<!--Components-->
+              <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                <span>组成</span>
+              </li>
+              <!--分类category-->
+                              <li >
+                <a class="auto">
+                    <span class="pull-right text-muted">
+                        >
+                  </span>
+<!--                  <i class="glyphicon glyphicon-th"></i>-->
+                    <span class="nav-icon"><i data-feather="grid"></i></span>
+
+                    <span>分类</span>
+                </a>
+                <ul class="nav nav-sub dk">
+                  <li class="nav-sub-header">
+                    <a>
+                      <span>分类</span>
+                    </a>
+                  </li>
+                  <!--循环输出分类-->
+                    <li>
+                            {% for c in ctgs %}
+                         <a href="{{ url_for('posts.posts_ctgs',pid=c.id) }}"><b class="badge pull-right">
+                            {{ c.posts | length }}
+                         </b><span></span>{{ c.categorys }}</a>
+                        {% endfor %}
+                    </li>
+                </ul>
+
+                    </li>
+              <!--友情链接-->
+              <li>
+                <a class="auto">
+                  <span class="pull-right text-muted">
+{#                    <i class="fontello icon-fw fontello-angle-right text"></i>#}
+{#                    <i class="fontello icon-fw fontello-angle-down text-active"></i>#}
+                    >
+                  </span>
+                    <span class="nav-icon"><i data-feather="user"></i></span>
+                  <span>友链</span>
+                </a>
+                <ul class="nav nav-sub dk">
+                  <li class="nav-sub-header">
+                    <a data-no-instant>
+                      <span>友链</span>
+                    </a>
+                  </li>
+                  <!--使用links插件，输出全站友链-->
+                 <li data-original-title="有趣的人" data-toggle="tooltip" data-placement="top">
+                     <a href="https://blog.seasonseason.top/" target="_blank"><span>Season</span></a></li>
+                 </ul>
+              </li>
+                            </ul>
+          </nav>
+          <!-- nav -->
+        </div>
+          <!--end of .navi-wrap-->
+          <!--left_footer-->
+
+      </div><!--.aside-wrap-->
+  </aside>
+<!-- content -->
+<div id="content" class="app-content">
+    <!--loading animate-->
+    <div id="loading" class="butterbar active hide">
+            <span class="bar"></span>
+        </div>  <!-- / aside -->
+
+<!-- <div id="content" class="app-content"> -->
+  <a class="off-screen-toggle hide"></a>
+  <main class="app-content-body ">
+    <div class="hbox hbox-auto-xs hbox-auto-sm">
+      <div class="col center-part">
+                  <header class="bg-light lter wrapper-md">
+          <h1 class="m-n font-thin text-black l-h">搜索“{{ keyword }}”的结果为。。。</h1>
+          </header>
+        <div class="wrapper-md" id="post-panel">
+
+                        <!--首页输出文章-->
+
+           <div class="blog-post">
+                {% for p in posts %}
+<div class="single-post panel">
+    <div class="index-post-img">
+        <a href="{{ url_for('posts.posts_detail',pid=p.id, _external=True) }}">
+                 <div class="item-thumb lazy"> <img src="{{ p.img }}"
+                 style="width: 800px; height: 250px; border-radius: 5px;object-fit: cover;">
+</div>
+        </a>
+    </div><div class="post-meta wrapper-lg">    <h2 class="m-t-none text-ellipsis index-post-title text-title"><a
+    href="{{ url_for('posts.posts_detail',pid=p.id, _external=True) }}">{{ p.title }}</a></h2><p class="summary l-h-2x text-muted"><a
+        href="{{ url_for('posts.posts_detail',pid=p.id, _external=True) }}">{{ p.article|safe|striptags|showEllipsis }}</a></p><div class="line line-lg b-b b-light"></div>
+<div class="text-muted post-item-foot-icon text-ellipsis list-inline">
+<li>
+<span class="m-r-sm right-small-icons"><i data-feather="user"></i></span><a href="{{ url_for('posts.posts_detail',pid=p.id, _external=True) }}">{{ p.user.username }}</a></li>
+
+<span class="right-small-icons m-r-sm"><i data-feather="clock"></i></span>
+    {{ moment(p.timestamp).format('YYY-MM-D H:m:s') }}&nbsp;
+<li><span class="right-small-icons m-r-sm"><i
+data-feather="message-square"></i></span><a href="http://jiuaidy.tk/index.php/archives/1/#comments">{{ p.visit }}</a></li>
+</div><!--text-muted-->
+</div><!--post-meta wrapper-lg-->
+</div><!--panel/panel-small-->
+{% endfor %}
+           <script>
+               {{ moment.include_jquery() }}
+        {{ moment.include_moment() }}　　
+    {{ moment.locale('zh-cn') }}
+</script>
+</div>
+            <!--分页首页按钮-->
+          <nav class="text-center m-t-lg m-b-lg" role="navigation">
+              <ol class="page-navigator">
+                 {% from 'common/page_macro.html' import page %}
+    {{ page(pagination, 'main.index') }}
+              </ol>
+                  </nav>
+
+            <style>
+                .page-navigator>li>a, .page-navigator>li>span{
+                    line-height: 1.42857143;
+                    padding: 6px 12px;
+                }
+            </style>
+        </div>
+      </div>
+      <!--首页右侧栏-->
+               <aside class="asideBar col w-md bg-white-only bg-auto no-border-xs" role="complementary">
+     <div id="sidebar">
+      <section id="tabs-4" class="widget widget_tabs clear">
+       <div class="nav-tabs-alt no-js-hide">
+        <ul class="nav nav-tabs nav-justified box-shadow-bottom-normal tablist" role="tablist">
+         <li data-index="0" class="active" role="presentation"> <a href="#widget-tabs-4-hots" role="tab" aria-controls="widget-tabs-4-hots" aria-expanded="true" data-toggle="tab"><div class="sidebar-icon wrapper-sm"><i data-feather="thumbs-up"></i></div><span class="sr-only">热门文章</span> </a></li>
+                            <li role="presentation" data-index="1"> <a href="#widget-tabs-4-comments" role="tab" aria-controls="widget-tabs-4-comments" aria-expanded="false" data-toggle="tab"><div class="sidebar-icon wrapper-sm"><i  data-feather="message-square"></i></div> <span class="sr-only">最新评论</span> </a></li>
+                        <li data-index="2" role="presentation"> <a href="#widget-tabs-4-random" role="tab" aria-controls="widget-tabs-4-random" aria-expanded="false" data-toggle="tab"> <div class="sidebar-icon wrapper-sm"><i data-feather="gift"></i></div>  <span class="sr-only">随机文章</span>
+             </a></li>
+            <span class="navs-slider-bar"></span>
+        </ul>
+       </div>
+       <div class="tab-content">
+       <!--热门文章-->
+        <div id="widget-tabs-4-hots" class="tab-pane  fade in wrapper-md active" role="tabpanel">
+         <h5 class="widget-title m-t-none text-md">热门文章</h5>
+         <ul class="list-group no-bg no-borders pull-in m-b-none">
+          <li class="list-group-item">
+             {% for v in visit %}
+<li class="list-group-item">
+                <a href="{{ url_for('posts.posts_detail',pid=v.id, _external=True) }}" class="pull-left thumb-sm m-r"><img src="{{ v.img }}" class="img-40px normal-shadow img-square"></a>
+                <div class="clear">
+                    <h4 class="h5 l-h text-second"> <a href="{{ url_for('posts.posts_detail',pid=v.id, _external=True) }}" title="{{ v.title }}">{{ v.title }} </a></h4>
+                    <small class="text-muted post-head-icon"><span class="meta-date"> <i data-feather="message-circle"></i> <span class="sr-only">浏览次数:</span> <span class="meta-value">{{ v.visit }}</span>
+                    </span>
+              </small></div></li>
+              {% endfor %}
+         </ul>
+        </div>
+                          <!--最新评论-->
+        <div id="widget-tabs-4-comments" class="tab-pane fade wrapper-md no-js-show" role="tabpanel">
+         <h5 class="widget-title m-t-none text-md">最新评论</h5>
+         <ul class="list-group no-borders pull-in auto m-b-none no-bg">
+            {% for comment in comments_five %}
+           <li class="list-group-item">
+
+              <a href="http://jiuaidy.tk/index.php/archives/1/#comment-2" class="pull-left thumb-sm avatar m-r">
+                  <img src="{{ url_for('static',filename='upload/'+comment.user.icon) }}" class="img-40px photo img-square normal-shadow">              </a>
+              <a href="http://jiuaidy.tk/index.php/archives/1/#comment-2" class="text-muted">
+              </a>
+              <div class="clear">
+                  <div class="text-ellipsis">
+                      <a href="http://jiuaidy.tk/index.php/archives/1/#comment-2" title="寒夜方舟"> {{ comment.user.username }} </a>
+                  </div>
+                  <small class="text-muted">
+                      <span>
+                          {{ comment.article }} </span>
+                  </small>
+              </div>
+          </li>
+             {% endfor %}
+                   </ul>
+        </div>
+                   <!--随机文章-->
+        <div id="widget-tabs-4-random" class="tab-pane fade wrapper-md no-js-show" role="tabpanel">
+            <h5 class="widget-title m-t-none text-md">支持(微信)</h5>
+                <img src="{{ url_for('static',filename='img/pay.jpg') }}">
+        </div>
+       </div>
+      </section>
+      <!--博客信息-->
+               <section id="blog_info" class="widget widget_categories wrapper-md clear">
+       <h5 class="widget-title m-t-none text-md">博客信息</h5>
+       <ul class="list-group box-shadow-wrap-normal">
+                      <li class="list-group-item text-second"><span class="blog-info-icons"> <i data-feather="award"></i></span> <span
+                       class="badge
+           pull-right">{{ art }}</span>文章数目</li>
+                      <li class="list-group-item text-second"><span class="blog-info-icons"> <i data-feather="calendar"></i></span>
+               <span class="badge
+           pull-right">{{ v }}</span>访问量</li>
+           <li class="list-group-item text-second"><span class="blog-info-icons"> <i data-feather="calendar"></i></span>
+               <span class="badge
+           pull-right">175天</span>运行天数</li>
+       </ul>
+      </section>
+{#                        <!--广告位置-->#}
+{#         <section id="a_d_sidebar" class="widget widget_categories wrapper-md clear">#}
+{#             <h5 class="widget-title m-t-none text-md">广告</h5>#}
+{#            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>#}
+{#<!-- handsome全局右侧边栏广告位 -->#}
+{#<ins class="adsbygoogle"#}
+{#     style="display:inline-block;width:200px;height:200px"#}
+{#     data-ad-client="ca-pub-4779708111715019"#}
+{#     data-ad-slot="6257988999"></ins>#}
+{#<script>#}
+{#     (adsbygoogle = window.adsbygoogle || []).push({});#}
+{#</script>         </section>#}
+                  <!--非文章页面-->
+            <section id="tag_cloud-2" class="widget widget_tag_cloud wrapper-md clear">
+       <h5 class="widget-title m-t-none text-md">标签云</h5>
+          <div class="tags l-h-2x">
+                                                                    <a href="#" class="label badge" title="centos" data-toggle="tooltip">python</a>
+                                        <a href="#" class="label badge" title="typecho" data-toggle="tooltip">后端</a>
+                                        <a href="#" class="label badge" title="debian" data-toggle="tooltip">flask</a>
+              <a href="#" class="label badge" title="debian" data-toggle="tooltip">django</a>
+              <a href="#" class="label badge" title="debian" data-toggle="tooltip">爬虫</a>
+              <a href="#" class="label badge" title="debian" data-toggle="tooltip">算法</a>
+                                          </div>
+      </section>
+        </div>
+     </aside>
+      </div>
+  </main>
+    <!-- footer -->
+  </div><!-- /content -->
 {% endblock %}
+
+
+

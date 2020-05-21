@@ -1,0 +1,34 @@
+{% extends 'common/base1.0.html' %}
+{% block title %}
+    搜索...
+{% endblock %}
+
+{% block page_content %}
+    <h1>搜索关键字“<font style="color: red">{{ keyword }}</font>”的结果为</h1>
+    <br>
+    {# 博客内容的展示 #}
+    {% for p in posts %}
+    <div class="media" style="background-color: rgba(255,255,255,0.8);padding:6px 5px;border-radius: 10px;">
+    <a href="{{ url_for('posts.posts_detail',pid=p.id, _external=True) }}" style="color: #000000;text-decoration: none">
+        <div class="media-left media-middle">
+               <img class="media-object" src="{{ url_for('static',filename='upload/'+p.img) }}" alt="..."   style="border-radius: 5px;border-top:2px solid #ccc;border-right:2px solid #ccc;">
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading" style="font-weight: bold">{{ p.title }}</h4>
+            <span style="font-size: 18px;">{{ p.article|striptags|showEllipsis }}</span>
+        </div>
+                    <br>
+
+            <div style="float: right;color: black;font-size: 15px">
+                <b>👍:{{ p.visit }}</b>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {{moment(p.timestamp).format('YYYY-MM-DD H:m:s')}}
+            </div>
+        <hr>
+    </a>
+    </div>
+        {% endfor %}
+    {# 分页 #}
+    {% from 'common/page_macro.html' import page %}
+    {{ page(pagination, 'posts.search',keyword=keyword) }}
+{% endblock %}

@@ -4,25 +4,15 @@
     <list default="true" id="02b5bc8d-b777-4c6c-90cc-721126880e6d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.qiniu_pythonsdk_hostscache.json" beforeDir="false" afterPath="$PROJECT_DIR$/.qiniu_pythonsdk_hostscache.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/common/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/common/base1.0.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/extensions.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/extensions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/common/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/common/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/templates/main/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/main/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/main/index_1.0.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/main/index_1.0.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/owncenter/edit_posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/owncenter/edit_posts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/owncenter/posts_manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/owncenter/posts_manager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/owncenter/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/owncenter/upload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/owncenter/user_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/owncenter/user_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/posts/add_categorys.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/posts/add_categorys.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/posts/delete_categorys.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/posts/delete_categorys.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/templates/posts/1.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/App/templates/posts/posts_ctgs.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/posts/posts_ctgs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/posts/posts_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/posts/posts_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/templates/posts/search_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/posts/search_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/posts/send_posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/posts/send_posts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/user/again_active.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/user/again_active.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/user/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/templates/user/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/App/templates/user/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App/views/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/views/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/views/owncenter.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/views/owncenter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/views/posts.py" beforeDir="false" afterPath="$PROJECT_DIR$/App/views/posts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +75,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/homework-python/xiecheng" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/App/static/js" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -95,19 +85,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\blog\flask-blog\App\static\editormd" />
-      <recent name="D:\blog\flask-blog\App\static\img" />
-      <recent name="D:\blog\flask-blog\App\templates\main" />
-      <recent name="D:\blog\App\static\img\lunbo" />
-      <recent name="D:\blog\App\static\img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\blog\flask-blog\App\static\music" />
       <recent name="D:\blog\flask-blog\App\static\editormd" />
       <recent name="D:\blog\App\static\img" />
       <recent name="D:\blog\App\static\img\banner" />
       <recent name="D:\blog\App\templates\user" />
-      <recent name="D:\blog\App\templates\posts" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\blog\flask-blog\App\static\js" />
+      <recent name="D:\blog\flask-blog\App\templates" />
+      <recent name="D:\blog\flask-blog\App\static\upload" />
+      <recent name="D:\blog\flask-blog\App\static\editormd" />
+      <recent name="D:\blog\flask-blog\App\static\img" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main">
@@ -207,7 +197,10 @@
       <workItem from="1586739193822" duration="2621000" />
       <workItem from="1586743127319" duration="13420000" />
       <workItem from="1586849956598" duration="30000" />
-      <workItem from="1588206963656" duration="21810000" />
+      <workItem from="1588206963656" duration="31266000" />
+      <workItem from="1588332705469" duration="1443000" />
+      <workItem from="1588564443477" duration="6251000" />
+      <workItem from="1589977933608" duration="9994000" />
     </task>
     <servers />
   </component>
@@ -219,6 +212,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583248818006" />
+    <state x="691" y="328" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589977967226">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="691" y="328" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1589977967226" />
+    <state x="691" y="328" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588567449302" />
     <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586492962007">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -255,6 +253,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="814" y="390" width="336" height="260" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1920.1040@0.0.1920.1040" timestamp="1583072099174" />
+    <state x="647" y="275" width="653" height="490" key="find.popup" timestamp="1590036289499">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="647" y="275" width="653" height="490" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1590036289499" />
     <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1582542915895">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -2,6 +2,7 @@
 <!DOCTYPE HTML>
 <html class="no-js bg" lang="zh-cmn-Hans">
 <head>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta charset="UTF-8">
     <!--IE 8浏览器的页面渲染方式-->
@@ -14,11 +15,11 @@
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
     <title>
+
         {% block title %}
 
 {% endblock %}
     </title>
-
             <link rel="icon" type="image/ico" href="/favicon.ico">
         <meta name="description" content="Just So So ..." />
 <meta name="keywords" content="typecho,php,blog" />
@@ -116,6 +117,9 @@
     </form>
         <!-- / search form -->
                 <ul class="nav navbar-nav navbar-right">
+                <li class="music-box hidden-xs hidden-sm" style="right: 80px">
+                    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=415792881&auto=1&height=32"></iframe>
+                </li>
                                         {# 验证是否已经登录 #}
                     {% if  current_user.is_authenticated %}
                         <li><a href="#">欢迎：{{ current_user.username }}</a></li>
@@ -157,7 +161,7 @@
       <div class="topButton panel panel-default">
           <button id="goToTop" class="btn btn-default no-shadow pos-abt hide  border-radius-half-left"
                   data-toggle="tooltip" data-placement="left" data-original-title="返回顶部">
-              ︽
+              ^
           </button>
       </div>
   </footer>
@@ -306,13 +310,6 @@ SearchConfig = {
 <!--主题核心js-->
     <script src="http://jiuaidy.tk/usr/themes/handsome/assets/js/function.min.js?v=6.0.020191205"></script>
     <script src="http://jiuaidy.tk/usr/themes/handsome/assets/js/core.min.js?v=6.0.020191205"></script>
-
-
-    <!--全局播放器组件-->
-    <script src="http://jiuaidy.tk/usr/themes/handsome/assets/js/features/music.min.js?v=6.0.020191205"></script>
-    <script>
-                var player = new skPlayer({"autoplay":false,"listshow":false,"mode":"listloop","music":{"type":"cloud","source":"888233349","media":"tencent"}});
-    </script>
 
 
     <script type="text/javascript">
