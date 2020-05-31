@@ -8,7 +8,7 @@ from App.extensions import file  # 导入文件上传配置对象
 # 发表博客的表单类
 class SendPosts(FlaskForm):
     title = StringField('标题', validators=[DataRequired('标题内容不能为空'),
-                                          Length(min=3,max=20,message='标题内容在3-20字之间')],render_kw={'placeholder':'请输入标题'})
+                                          Length(min=3,max=40,message='标题内容在3-40字之间')],render_kw={'placeholder':'请输入标题'})
     article = TextAreaField('博客内容', validators=[DataRequired('博客内容不能为空')],render_kw={'placeholder':'请输入博客内容'})
 
     submit = SubmitField('发表博客')
