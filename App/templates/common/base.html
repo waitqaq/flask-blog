@@ -22,16 +22,15 @@
     </title>
             <link rel="icon" type="image/ico" href="/favicon.ico">
         <meta name="description" content="Just So So ..." />
-<meta name="keywords" content="typecho,php,blog" />
-<meta name="generator" content="Typecho 1.1/17.10.30" />
-<meta name="template" content="handsome" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="pingback" href="http://jiuaidy.tk/index.php/action/xmlrpc" />
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://jiuaidy.tk/index.php/action/xmlrpc?rsd" />
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://jiuaidy.tk/index.php/action/xmlrpc?wlw" />
-<link rel="alternate" type="application/rss+xml" title="还是从前的少年 &raquo; RSS 2.0" href="http://jiuaidy.tk/index.php/feed/" />
-<link rel="alternate" type="application/rdf+xml" title="还是从前的少年 &raquo; RSS 1.0" href="http://jiuaidy.tk/index.php/feed/rss/" />
-<link rel="alternate" type="application/atom+xml" title="还是从前的少年 &raquo; ATOM 1.0" href="http://jiuaidy.tk/index.php/feed/atom/" />
-
+<link rel="alternate" type="application/rss+xml" title="小雕博客 &raquo; RSS 2.0" href="http://jiuaidy.tk/index.php/feed/" />
+<link rel="alternate" type="application/rdf+xml" title="小雕博客 &raquo; RSS 1.0" href="http://jiuaidy.tk/index.php/feed/rss/" />
+<link rel="alternate" type="application/atom+xml" title="小雕博客 &raquo; ATOM 1.0" href="http://jiuaidy.tk/index.php/feed/atom/" />
+<link rel="stylesheet" href="https://daiwei.site/static/resourse/d-audio/d-audio.css">
         <!-- 第三方CDN加载CSS -->
         <link href="http://jiuaidy.tk/usr/themes/handsome/assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -115,10 +114,11 @@
         </div>
         <button type="submit" class="btn btn-default" style="border-radius: 5px">搜索</button>
     </form>
+
         <!-- / search form -->
                 <ul class="nav navbar-nav navbar-right">
                 <li class="music-box hidden-xs hidden-sm" style="right: 80px">
-                    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=415792881&auto=1&height=32"></iframe>
+  <div class="d-audio" style="width: 200px"></div>
                 </li>
                                         {# 验证是否已经登录 #}
                     {% if  current_user.is_authenticated %}
@@ -167,88 +167,6 @@
   </footer>
   </div><!--end of .app app-header-fixed-->
 
-<script>
-SearchConfig = {
-    url : "http://jiuaidy.tk/usr/plugins/Handsome/cache/search.json"
-}
-</script>
-
-
-    <!--定义全局变量-->
-    <script type="text/javascript">
-        window['LocalConst'] = {
-            COMMENT_NAME_INFO: '必须填写昵称或姓名',
-            COMMENT_EMAIL_INFO: '必须填写电子邮箱地址',
-            COMMENT_EMAIL_LEGAL_INFO: '邮箱地址不合法',
-            COMMENT_CONTENT_INFO: '必须填写评论内容',
-            COMMENT_SUBMIT_ERROR: '提交失败，请重试！',
-            COMMENT_CONTENT_LEGAL_INFO: '提交失败,评论被拦截，可能发言太快或内容不符合规则',
-
-            LOGIN_USERNAME_INFO: '必须填写用户名',
-            LOGIN_PASSWORD_INFO: '请填写密码',
-            LOGIN_SUBMIT_ERROR: '登录失败，请重新登录',
-            LOGIN_SUBMIT_INFO: '用户名或者密码错误，请重试',
-            LOGIN_SUBMIT_SUCCESS: '登录成功',
-            CLICK_TO_REFRESH: '点击以刷新页面',
-            LOGOUT_SUCCESS_REFRESH: '退出成功，正在刷新当前页面',
-
-            LOGOUT_ERROR: '退出失败，请重试',
-            LOGOUT_SUCCESS: '退出成功',
-
-            SUBMIT_PASSWORD_INFO: '密码错误，请重试',
-            COMMENT_TITLE: '评论通知',
-            LOGIN_TITLE: '登录通知',
-            ChANGYAN_APP_KEY: '',
-            CHANGYAN_CONF: '',
-
-            COMMENT_SYSTEM: '0',
-            COMMENT_SYSTEM_ROOT: '0',
-            COMMENT_SYSTEM_CHANGYAN: '1',
-            COMMENT_SYSTEM_OTHERS: '2',
-            EMOJI: '表情',
-            IS_PJAX: '1',
-            IS_PAJX_COMMENT: '1',
-            BASE_SCRIPT_URL: 'http://jiuaidy.tk/usr/themes/handsome/',
-            BLOG_URL: 'http://jiuaidy.tk/',
-            BLOG_URL_PHP: 'http://jiuaidy.tk/index.php/',
-            THEME_COLOR: '14',
-            THEME_COLOR_EDIT: 'white-white-white',
-            THEME_HEADER_FIX: '1',
-            THEME_ASIDE_FIX: '1',
-            THEME_ASIDE_FOLDED: '',
-            THEME_ASIDE_DOCK: '',
-            THEME_CONTAINER_BOX: '1',
-            THEME_HIGHLIGHT_CODE: '1',
-            THEME_TOC: '1',
-            TOC_TITLE: '文章目录',
-            HEADER_FIX: '固定头部',
-            ASIDE_FIX: '固定导航',
-            ASIDE_FOLDED: '折叠导航',
-            ASIDE_DOCK: '置顶导航',
-            CONTAINER_BOX: '盒子模型',
-            OFF_SCROLL_HEIGHT: '50',
-            COMMENT_REJECT_PLACEHOLDER: '居然什么也不说，哼',
-            COMMENT_PLACEHOLDER: '说点什么吧……',
-            SHOW_SETTING_BUTTON: '',
-            THEME_VERSION: '6.0.020191205',
-
-            OPERATION_NOTICE: '操作通知',
-            SCREENSHOT_BEGIN: '正在生成当前页面截图……',
-            SCREENSHOT_NOTICE: '点击顶部下载按钮保存当前卡片',
-            SCREENSHORT_ERROR: '由于图片跨域原因导致截图失败',
-            SCREENSHORT_SUCCESS: '截图成功',
-            MUSIC_NOTICE: '播放通知',
-            MUSIC_FAILE: '当前音乐地址无效，自动为您播放下一首',
-            MUSIC_FAILE_END: '当前音乐地址无效',
-            MUSIC_LIST_SUCCESS: '歌单歌曲加载成功',
-            CDN_NAME: '',
-            LAZY_LOAD: ''
-        };
-
-    </script>
-
-
-
 <!--CDN加载-->
 <script src="http://jiuaidy.tk/usr/themes/handsome/assets/libs/bootstrap/js/bootstrap.min.js"></script>
 
@@ -292,9 +210,27 @@ SearchConfig = {
 
 <script src="http://jiuaidy.tk/usr/themes/handsome/assets/js/features/feather.min.js?v=6.0.020191205"></script>
 
-
-
-
+  <script src="https://daiwei.site/static/resourse/d-audio/d-audio.js"></script>
+  <script>
+    var d = new Daudio({
+      ele: '.d-audio',
+      // 音乐封面
+        imageurl: 'http://cdnonline.top/qifengle.jpg',
+        // 音乐地址
+        src:'http://cdnonline.top/qifengle.mp3',
+        // 音乐名字
+    name: '起风了',
+    // 音乐歌手
+    singer: '买辣椒也用卷',
+    // 是否显示进度信息
+    showprogress: true,
+        // '' 就是默认状态， cricle则是初始化就是圆形且可以旋转
+    initstate: '',
+         next: function () {
+          d.checkAudio('http://cdnonline.top/daojiangxing.mp3', 'http://cdnonline.top/daojiangxing.jpeg', '盗将行', '花粥、马雨阳')
+         },
+    })
+</script>
 <!--lightgallery必备组件-->
 <script src="http://jiuaidy.tk/usr/themes/handsome/assets/js/features/jquery.fancybox.min.js?v=6.0.020191205"></script>
 <script src="http://jiuaidy.tk/usr/themes/handsome/assets/js/features/easypiechart.min.js?v=6.0.020191205"></script>
@@ -309,7 +245,7 @@ SearchConfig = {
 
 <!--主题核心js-->
     <script src="http://jiuaidy.tk/usr/themes/handsome/assets/js/function.min.js?v=6.0.020191205"></script>
-    <script src="http://jiuaidy.tk/usr/themes/handsome/assets/js/core.min.js?v=6.0.020191205"></script>
+    <script src="{{ url_for('static',filename='js/core.min.js') }}"></script>
 
 
     <script type="text/javascript">
