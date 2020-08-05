@@ -1,4 +1,5 @@
 # flask-blog
+**演示地址： http://alonezd.top**
 
 博客整体采用flask框架，mysql数据库，进行上线开发。教程会在后面陆续更新
 目前已经支持的功能：
