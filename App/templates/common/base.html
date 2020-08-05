@@ -53,11 +53,11 @@
     <style type="text/css">
 
         html.bg {
-        background: url(https://i.loli.net/2020/04/13/BOFSDE9KAu6VzY2.jpg) center center no-repeat no-repeat fixed #6A6B6F;background-size: cover;
+        background: url(http://cdnonline.top/2003340.jpg) center center no-repeat no-repeat fixed #6A6B6F;background-size: cover;
 
         }
         .cool-transparent .off-screen+* .app-content-body {
-        background: url(https://i.loli.net/2020/04/13/BOFSDE9KAu6VzY2.jpg)center center no-repeat no-repeat fixed #6A6B6F;background-size: cover;
+        background: url(http://cdnonline.top/2003340.jpg)center center no-repeat no-repeat fixed #6A6B6F;background-size: cover;
         }
 @media (max-width:767px){
     html.bg {
@@ -212,25 +212,53 @@
 
   <script src="https://daiwei.site/static/resourse/d-audio/d-audio.js"></script>
   <script>
-    var d = new Daudio({
-      ele: '.d-audio',
-      // 音乐封面
-        imageurl: 'http://cdnonline.top/qifengle.jpg',
-        // 音乐地址
-        src:'http://cdnonline.top/qifengle.mp3',
-        // 音乐名字
-    name: '起风了',
-    // 音乐歌手
-    singer: '买辣椒也用卷',
-    // 是否显示进度信息
-    showprogress: true,
-        // '' 就是默认状态， cricle则是初始化就是圆形且可以旋转
-    initstate: '',
-         next: function () {
-          d.checkAudio('http://cdnonline.top/daojiangxing.mp3', 'http://cdnonline.top/daojiangxing.jpeg', '盗将行', '花粥、马雨阳')
-         },
-    })
-</script>
+var musicLists = [
+   {
+       name: '起风了',
+       author: '买辣椒也用券',
+       avatar:  'http://cdnonline.top/qifengle.jpg',
+       src: 'http://cdnonline.top/qifengle.mp3',
+   } ,{
+       name: '盗将行',
+       author: '花粥、马雨阳',
+       avatar:  'http://cdnonline.top/daojiangxing.jpeg',
+       src: 'http://cdnonline.top/daojiangxing.mp3',
+   } ,{
+       name: '下山',
+       author: '要不要买菜',
+       avatar:  'http://cdnonline.top/xiashan.jpeg',
+       src: 'http://cdnonline.top/xiashan.mp3',
+   } ,{
+       name: '稻香',
+       author: '周杰伦',
+       avatar:  'http://cdnonline.top/daoxiang.jpg',
+       src: 'http://cdnonline.top/daoxiang.mp3',
+  }
+]
+var playIndex = 0
+
+var toNext  = () => {
+    const length = musicLists.length;
+    // 做一个判断  如果超出长度，再设置为0
+    playIndex = playIndex >= length - 1 ? 0 : playIndex + 1
+    d.checkAudio(musicLists[playIndex].src, musicLists[playIndex].avatar, musicLists[playIndex].name, musicLists[playIndex].author)
+}
+
+var d = new Daudio ({
+    ele: '.d-audio',
+    src: musicLists[0].src,
+    imageurl: musicLists[0].avatar,
+    name: musicLists[0].name,
+    singer: musicLists[0].author,
+    next: function () {
+      toNext()
+    },
+    ended: function () {
+       toNext()
+    }
+})
+
+  </script>
 <!--lightgallery必备组件-->
 <script src="http://jiuaidy.tk/usr/themes/handsome/assets/js/features/jquery.fancybox.min.js?v=6.0.020191205"></script>
 <script src="http://jiuaidy.tk/usr/themes/handsome/assets/js/features/easypiechart.min.js?v=6.0.020191205"></script>

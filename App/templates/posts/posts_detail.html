@@ -1,6 +1,6 @@
 {% extends 'common/base.html' %}
 {% block title %}
-    博客详情
+{{ posts.title  }}
 {% endblock %}
 {% block styles %}
     <link href="{{ url_for('static', filename='editormd/css/editormd.preview.min.css') }}" rel="stylesheet" />
