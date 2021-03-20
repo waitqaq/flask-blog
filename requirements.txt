@@ -20,7 +20,7 @@ Flask-Uploads==0.2.1
 Flask-WTF==0.14.2
 idna==2.9
 itsdangerous==1.1.0
-Jinja2==2.11.1
+Jinja2==2.11.3
 jinja2-markdown==0.0.3
 Mako==1.1.1
 Markdown==3.2.1
